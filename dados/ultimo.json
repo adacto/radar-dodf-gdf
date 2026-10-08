@@ -1,0 +1,1815 @@
+{
+ "data": "2026-10-08",
+ "confirmada": "20261008",
+ "colhido_em": "2026-10-08T15:57:02.593413+00:00",
+ "total_no_diario": 361,
+ "total_sinalizado": 88,
+ "por_secao": {
+  "Seção I": 68,
+  "Seção II": 131,
+  "Seção III": 162
+ },
+ "rotulos": {
+  "divida": "Reconhecimento de dívida",
+  "penalidade": "Penalidade a fornecedor",
+  "direta": "Contratação direta",
+  "rescisao": "Rescisão contratual",
+  "errata": "Errata / retificação",
+  "aditivo": "Termo aditivo / reequilíbrio",
+  "convenio": "Convênio / termo de colaboração",
+  "credito": "Crédito suplementar (decreto)",
+  "decreto": "Decreto do Poder Executivo",
+  "segov": "SEGOV e as Regionais"
+ },
+ "atos": [
+  {
+   "id": "634639",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Ineditorial",
+   "secao": "Seção III",
+   "orgao": "ASSOCIAÇÃO DOS OFICIAIS DA RESERVA REMUNERADA E REFORMADOS DA POLÍCIA MILITAR DO DISTRITO FEDERAL E DO CORPO DE BOMBEIROS MILITAR DO DISTRITO FEDERAL - ASSOR",
+   "trilha": "Ineditorial",
+   "sigla": "Ineditorial",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "A ASSOCIAÇÃO DOS OFICIAIS DA RESERVA REMUNERADA E REFORMADOS DA POLÍCIA MILITAR DO DISTRITO FEDERAL E DO CORPO DE BOMBEIROS MILITAR DO DISTRITO FEDERAL – ASSOR, por meio de seu Presidente, no uso das atribuições que lhe conferem os Artigos 23, parágrafo I, 26 e 27 do Estatuto da Entidade, torna públ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634639&p=retificacao",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634778",
+   "titulo": "RATIFICAÇÃO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Ratificação",
+   "secao": "Seção III",
+   "orgao": "Agência Reguladora de águas, Energia e Saneamento Básico",
+   "trilha": "SEMA",
+   "sigla": "SEMA",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo SEI: 00197-00003303/2026-62. Assunto. O DIRETOR-PRESIDENTE DA AGÊNCIA REGULADORA DE ÁGUAS, ENERGIA E SANEAMENTO BÁSICO DO DISTRITO FEDERAL - Adasa, no uso das atribuições regimentais, conforme o artigo 23, inciso VIII, da Lei n.º 4.285, de 26 de dezembro de 2008 e suas alterações posteriore",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634778&p=ratificacao-de-inexigibilidade%E2%80%AFde-licitacao",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634779",
+   "titulo": "RATIFICAÇÃO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Ratificação",
+   "secao": "Seção III",
+   "orgao": "Agência Reguladora de águas, Energia e Saneamento Básico",
+   "trilha": "SEMA",
+   "sigla": "SEMA",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo SEI: 00197-00003797/2026-85. Assunto. O DIRETOR-PRESIDENTE DA AGÊNCIA REGULADORA DE ÁGUAS, ENERGIA E SANEAMENTO BÁSICO DO DISTRITO FEDERAL - Adasa, no uso das atribuições regimentais, conforme o artigo 23, inciso VIII, da Lei n.º 4.285, de 26 de dezembro de 2008 e suas alterações posteriore",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634779&p=ratificacao-de-inexigibilidade%E2%80%AFde-licitacao",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634683",
+   "titulo": "EXTRATO DE RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Reconhecimento de dívida",
+   "secao": "Seção III",
+   "orgao": "Companhia Urbanizadora da Nova Capital do Brasil",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "SESSÃO 4.905ª EXTRAORDINÁRIA, REALIZADA EM 06 DE OUTUBRO DE 2026Referência: Processo Administrativo nº: 00112-00013108/2026-70, Interessado: Diretoria de Suporte. Assunto: Reconhecimento de despesa de exercício anterior. Com amparo na Resolução do Conselho de Administração n° 188/2015 - CA da NOVACA",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634683&p=extrato-de-reconhecimento-de-divida",
+   "sei": "00112-00013108/2026-70",
+   "cnpj": "24.002.193/0001-88",
+   "valor": "385.104,27"
+  },
+  {
+   "id": "634763",
+   "titulo": "TERMO DE RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Termo",
+   "secao": "Seção III",
+   "orgao": "Companhia de Saneamento Ambiental",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Nº Processo de Dispensa de Licitação: 00092-00031419/2024-79, Nº Processo do Contrato: 00092-00035934/2024-08. Contrato nº 9801/2024. Nº Processo de Reconhecimento de Dívida: 00092-00013231/2026-75. DEVEDOR: Companhia de Saneamento Ambiental do Distrito Federal – CAESB, inscrita sob CNPJ nº 00.082.0",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634763&p=termo-de-reconhecimento-de-divida",
+   "sei": "00092-00031419/2024-79",
+   "cnpj": "00.082.024/0001-37",
+   "valor": "21.284,44"
+  },
+  {
+   "id": "634743",
+   "titulo": "APLICAÇÃO DE PENALIDADE",
+   "tipo": "Aplicação de penalidade",
+   "secao": "Seção III",
+   "orgao": "DEPARTAMENTO DE ADMINISTRAÇÃO GERAL",
+   "trilha": "SSPDF > PCDF",
+   "sigla": "SSPDF",
+   "sinais": [
+    "penalidade"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo nº 00052-00026746/2026-58 – PCDF/DGPC/DAG/NRLC. O Diretor do Departamento de Administração Geral, da Polícia Civil do Distrito Federal – DAG/PCDF, no exercício das atribuições que lhe são conferidas pelo Regimento Interno da Polícia Civil do Distrito Federal, com fundamento na legislação vi",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634743&p=aplicacao-de-penalidade",
+   "sei": "00052-00026746/2026-58",
+   "cnpj": "53.557.733/0001-98",
+   "valor": "2.940,00"
+  },
+  {
+   "id": "634668",
+   "titulo": "EXTRATO DE DISPENSA DE LICITAÇÃO DE 07 DE OUTUBRO DE 2026",
+   "tipo": "Extrato de dispensa de licitação",
+   "secao": "Seção III",
+   "orgao": "DIRETORIA ADMINISTRATIVA",
+   "trilha": "SESDF > SES",
+   "sigla": "SESDF",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "O DIRETOR ADMINISTRATIVO, DO HOSPITAL MATERNO INFANTIL DR ANTONIO LISBOA, DA SECRETARIA DE ESTADO DE SAÚDE DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 1º da Portaria nº 473, de 04 de dezembro de 2023, o qual delega as atribuições previstas no Decreto nº 37.515, de 26 de julh",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634668&p=extrato-de-dispensa-de-licitacao-de-07-de-outubro-de-2026",
+   "sei": "00060-00040853/2024-46",
+   "cnpj": "08.774.906/0001-75",
+   "valor": "900,00"
+  },
+  {
+   "id": "634863",
+   "titulo": "EXTRATO DA RESCISÃO AMIGÁVEL DO CONTRATO BRB Nº 135/2026",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "GERÊNCIA DE CONTRATAÇÕES",
+   "trilha": "SEEC > BRB > Diretoria Executiva De Pessoas, Administração E Retaguarda > Superintendência De Logística E Operações",
+   "sigla": "SEEC",
+   "sinais": [
+    "rescisao"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Contratada: ARARAUNA TURISMO ECOLÓGICO LTDA. Objeto: Prestação de serviços de agenciamento de viagens por intermédio de passagens aéreas. Rescisão: Amigável, com efeitos retroativos a 22/09/2026. Pelo BRB: Tunas de Sousa Soares Ferreira. Pela Contratada: Selmo Rodrigues de Moraes. Proc. nº 187/2026.",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634863&p=extrato-da-rescisao-amigavel-do-contrato-brb-n-1352026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634703",
+   "titulo": "RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Reconhecimento de dívida",
+   "secao": "Seção III",
+   "orgao": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+   "trilha": "SEEC",
+   "sigla": "SEEC",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo: 04001-00001412/2023-11. Interessado: SOCIEDADE BENEFICENTE DE SENHORAS - HOSPITAL SÍRIO LIBANÊS, CNPJ Nº 61.590.410/0012-87. Valor: R$8.876,42 (oito mil oitocentos e setenta e seis reais e quarenta e dois centavos), relativo ao Termo de Credenciamento nº 546/2022. Em 07/10/2026, o Diretor-",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634703&p=reconhecimento-de-divida",
+   "sei": "04001-00001412/2023-11",
+   "cnpj": "61.590.410/0012-87",
+   "valor": "8.876,42"
+  },
+  {
+   "id": "634704",
+   "titulo": "RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Reconhecimento de dívida",
+   "secao": "Seção III",
+   "orgao": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+   "trilha": "SEEC",
+   "sigla": "SEEC",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo: 04001-00001268/2026-66. Interessado: BIOCÁRDIOS INSTITUTO DE CARDIOLOGIA LTDA, CNPJ Nº 05.544.035/0001-05. Valor: R$7.532,29 (sete mil quinhentos e trinta e dois reais e vinte e nove centavos), relativo ao Termo de Credenciamento nº 080/2021. Em 07/10/2026, o Diretor-Presidente do INAS, co",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634704&p=reconhecimento-de-divida",
+   "sei": "04001-00001268/2026-66",
+   "cnpj": "05.544.035/0001-05",
+   "valor": "7.532,29"
+  },
+  {
+   "id": "634705",
+   "titulo": "RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Reconhecimento de dívida",
+   "secao": "Seção III",
+   "orgao": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+   "trilha": "SEEC",
+   "sigla": "SEEC",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo: 04001-00007217/2026-48. Interessado: CLÍNICA RADIOLOGICA VILA RICA LTDA, CNPJ nº 00.508.572/0001-86. Valor: R$ 1.590,39 (um mil quinhentos e noventa reais e trinta e nove centavos), relativo ao Termo de Credenciamento nº 056003/2025 . Em 07/10/2026, o Diretor-Presidente do INAS, com base n",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634705&p=reconhecimento-de-divida",
+   "sei": "04001-00007217/2026-48",
+   "cnpj": "00.508.572/0001-86",
+   "valor": "1.590,39"
+  },
+  {
+   "id": "634706",
+   "titulo": "RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Reconhecimento de dívida",
+   "secao": "Seção III",
+   "orgao": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+   "trilha": "SEEC",
+   "sigla": "SEEC",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo: 04001-00007142/2026-03. Interessado: BIOCARDIOS INSTITUTO DE CARDIOLOGIA LTDA, CNPJ nº 05.544.035/0001-05. Valor: R$ 738,36 (setecentos e trinta e oito reais e trinta e seis centavos), relativo ao Termo de Credenciamento nº 055995/2025. Em 07/10/2026, o Diretor-Presidente do INAS, com base",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634706&p=reconhecimento-de-divida",
+   "sei": "04001-00007142/2026-03",
+   "cnpj": "05.544.035/0001-05",
+   "valor": "738,36"
+  },
+  {
+   "id": "634707",
+   "titulo": "RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Reconhecimento de dívida",
+   "secao": "Seção III",
+   "orgao": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+   "trilha": "SEEC",
+   "sigla": "SEEC",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo: 04001-00001897/2026-96. Interessado: SERVIÇOS HOSPITALARES YUGE S.A, CNPJ nº 72.576.143/0001-57. Valor: R$24.255,05 (vinte e quatro mil duzentos e cinquenta e cinco reais e cinco centavos), relativo ao Termo de Credenciamento nº 055993/2025 . Em 07/10/2026, o Diretor-Presidente do INAS, co",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634707&p=reconhecimento-de-divida",
+   "sei": "04001-00001897/2026-96",
+   "cnpj": "72.576.143/0001-57",
+   "valor": "24.255,05"
+  },
+  {
+   "id": "634708",
+   "titulo": "RECONHECIMENTO DE DÍVIDA",
+   "tipo": "Reconhecimento de dívida",
+   "secao": "Seção III",
+   "orgao": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+   "trilha": "SEEC",
+   "sigla": "SEEC",
+   "sinais": [
+    "divida"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo: 04001-00002545/2026-58. Interessado: CLÍNICA RADIOLÓGICA VILA RICA LTDA, CNPJ nº 00.508.572/0001-86. Valor: R$1.646,17 (um mil seiscentos e quarenta e seis reais e dezessete centavos), relativo ao Termo de Credenciamento nº 0139/2021. Em 07/10/2026, o Diretor-Presidente do INAS, com base n",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634708&p=reconhecimento-de-divida",
+   "sei": "04001-00002545/2026-58",
+   "cnpj": "00.508.572/0001-86",
+   "valor": "1.646,17"
+  },
+  {
+   "id": "634737",
+   "titulo": "APLICAÇÃO DE PENALIDADE",
+   "tipo": "Aplicação de penalidade",
+   "secao": "Seção III",
+   "orgao": "POLÍCIA CIVIL",
+   "trilha": "SSPDF",
+   "sigla": "SSPDF",
+   "sinais": [
+    "penalidade"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Processo nº 00052-00026243/2026-82 – PCDF/DGPC/DAG/NRLC. O Delegado-Geral da Polícia Civil do Distrito Federal – DGPC/PCDF, no exercício das atribuições que lhe são conferidas pelo Regimento Interno da Polícia Civil do Distrito Federal, com fundamento na legislação vigente, notadamente no item 9.1.2",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634737&p=aplicacao-de-penalidade",
+   "sei": "00052-00026243/2026-82",
+   "cnpj": "46.568.049/0001-46",
+   "valor": "23.055,57"
+  },
+  {
+   "id": "634907",
+   "titulo": "ERRATA",
+   "tipo": "Errata",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "decreto",
+    "errata"
+   ],
+   "grupos": [
+    "governo",
+    "risco"
+   ],
+   "trecho": "No Inciso I do art. 3º, do Decreto nº 49.370, de 16 de setembro de 2026, publicado no DODF nº 173, de 17 de setembro de 2026, página 11, ONDE SE LÊ: “I - Divisão de Concursos, da Divisão de Gestão de Concursos...”; LEIA-SE: “I - Divisão de Gestão de Concursos, do Departamento de Gestão de Pessoas...",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634907&p=errata",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634912",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "decreto",
+    "errata"
+   ],
+   "grupos": [
+    "governo",
+    "risco"
+   ],
+   "trecho": "No Decreto de 11 de setembro de 2026, publicado no DODF nº 170, de 14 de setembro de 2026, página 24, no ato que exonerou, por extinção do cargo, BRENDON ALEXANDRE PIMENTEL, ONDE SE LÊ: “...do Departamento de Trânsito do Distrito Federal - Detran/DF.”, LEIA-SE: “...do Departamento de Trânsito do Dis",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634912&p=retificacao",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634714",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "SECRETARIA-EXECUTIVA DE GESTÃO ADMINISTRATIVA",
+   "trilha": "SEEDF",
+   "sigla": "SEEDF",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Portaria de 11 de agosto de 2026, publicada no DODF nº 148, de 12 de agosto de 2026, no ato que autorizou o afastamento remunerado para estudos da servidora MAYSSARA REANY DE JESUS OLIVEIRA, matrícula 224.585-X, para cursar Doutorado em Linguística, na Universidade de Brasília, considerando o Pro",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634714&p=retificacao",
+   "sei": "00080-00203520/2026-21",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634715",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "SECRETARIA-EXECUTIVA DE GESTÃO ADMINISTRATIVA",
+   "trilha": "SEEDF",
+   "sigla": "SEEDF",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Portaria de 11 de agosto de 2026, publicada no DODF nº 148, de 12 de agosto de 2026, no ato que autorizou o afastamento remunerado para estudos do servidor JOSÉ ALESSANDRO DA SILVA, matrícula 234.960-4, para cursar Mestrado Profissional em Educação Física, na Universidade de Brasília, considerand",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634715&p=retificacao",
+   "sei": "00080-00220331/2026-13",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634716",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "SECRETARIA-EXECUTIVA DE GESTÃO ADMINISTRATIVA",
+   "trilha": "SEEDF",
+   "sigla": "SEEDF",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Portaria de 13 de agosto de 2026, publicada no DODF nº 150, de 14 de agosto de 2026, no ato que autorizou o afastamento remunerado para estudos do servidor DIEGO DE FRANCA CARVALHO LIMA, matrícula 229.559-8, para cursar Mestrado em Educação, na Universidade de Brasília, considerando o Processo 00",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634716&p=retificacao",
+   "sei": "00080-00219233/2026-33",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634591",
+   "titulo": "APLICAÇÃO DE PENALIDADE",
+   "tipo": "Aplicação de penalidade",
+   "secao": "Seção III",
+   "orgao": "SUBSECRETARIA DE ADMINISTRAÇÃO GERAL",
+   "trilha": "SEAPE",
+   "sigla": "SEAPE",
+   "sinais": [
+    "penalidade"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 04026-00038317/2024-49; INTERESSADO: SILVA DISTRIBUIDORA E FERRAGISTA LTDA. Aplico a penalidade de SUSPENSÃO para participar de licitações e de contratar com esta Secretaria, por 24 meses, contados a partir da sua publicação, à empresa SILVA DISTRIBUIDORA E FERRAGISTA LTDA, CNPJ nº 45.309.",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634591&p=aplicacao-de-penalidade",
+   "sei": "04026-00038317/2024-49",
+   "cnpj": "45.309.056/0001-60",
+   "valor": null
+  },
+  {
+   "id": "634804",
+   "titulo": "EXTRATO DE RETIFICAÇÃO EXTRATO DO TERMO DE OUTORGA E ACEITAÇÃO - CHAMADA PÚBLICA Nº 04/2025 PARA SELEÇÃO DE PROJETOS DE PESQUISA CIENTÍFICA, TECNOLÓGICA E DE INOVAÇÃO QUE PROMOVAM A MELHORIA DA QUALIDADE DA ATENÇÃO À SAÚDE NO DISTRITO FEDERAL -",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "SUPERINTENDÊNCIA CIENTÍFICA, TECNOLÓGICA E DE INOVAÇÃO",
+   "trilha": "SECTI > FAP",
+   "sigla": "SECTI",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROGRAMA PESQUISA PARA O SUS: GESTÃO COMPARTILHADA EM SAÚDE (PPSUS)Processo: 00193-00000138/2026-08. Projeto: \"Cobertura vacinal e motivos que influenciam a adesão à vacina contra dengue em regiões administrativas vulnerabilizadas do Distrito Federal: subsídios para estratégias de enfrentamento às a",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634804&p=extrato-de-retificacao-extrato-do-termo-de-outorga-e-aceitacao-chamada-publica-n-042025-para-selecao-de-projetos-de-pesquisa-cientifica-tecnologica-e-de-inovacao-que-promovam-a-melhoria-da-qualidade-da-atencao-a-saude-no-distrito-federal-",
+   "sei": "00193-00000138/2026-08",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634787",
+   "titulo": "AVISO DE CONTRATAÇÃO DIRETA Nº 6/2026",
+   "tipo": "Aviso de contratação direita",
+   "secao": "Seção III",
+   "orgao": "Secretaria de Estado de Atendimento à Comunidade",
+   "trilha": "",
+   "sigla": "Secretaria de Estado de Atendimento à Comunidade",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO ADMINISTRATIVO SEI N° 04015-00001197/2026-51Torna-se público que o Distrito Federal, por intermédio da Secretaria de Estado de Atendimento à Comunidade do Distrito Federal - SEAC/DF, realizará dispensa de licitação, com critério de julgamento menor preço por grupo, na hipótese do art. 75, i",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634787&p=aviso-de-contratacao-direta-n-62026",
+   "sei": "04015-00001197/2026-51",
+   "cnpj": null,
+   "valor": "429,07"
+  },
+  {
+   "id": "634892",
+   "titulo": "AVISO DE CONTRATAÇÃO DIRETA Nº 12/2026",
+   "tipo": "Aviso",
+   "secao": "Seção III",
+   "orgao": "Subcontroladoria de Gestão Interna",
+   "trilha": "CGDF",
+   "sigla": "CGDF",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "DISPENSA ELETRÔNICAPROCESSO SEI N° 00480-00003903/2026-16O Distrito Federal - DF, por meio da CONTROLADORIA-GERAL DO DISTRITO FEDERAL, e da Agente de Contratação, designada pela Ordem de Serviço nº 09, de 2025, publicada no DODF nº 28, de 10/02/2025, torna público, para conhecimento dos interessados",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634892&p=aviso-de-contratacao-direta-n-122026",
+   "sei": "00480-00003903/2026-16",
+   "cnpj": null,
+   "valor": "54.350,44"
+  },
+  {
+   "id": "634602",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "Subsecretaria de Administração Geral",
+   "trilha": "SEJUS",
+   "sigla": "SEJUS",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Ordem de Serviço nº 322, de 1º de outubro de 2026, publicada no Diário Oficial do Distrito Federal nº 184, em 02/10/2026, página 44, ato que designou LEONARDO XAVIER DO NASCIMENTO, matrícula 221.260-9, para atuar como Fiscal Setorial Titular da Comissão Permanente de Fiscalização e Acompanhamento",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634602&p=retificacao",
+   "sei": "00400-00054188/2020-82",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634580",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "Subsecretaria de Administração Geral",
+   "trilha": "DPDF",
+   "sigla": "DPDF",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Ordem de Serviço nº 114, de 30 de Setembro de 2026, publicada no DODF nº 183 de 01 de outubro de 2026, página 62 que publicou Comissão de Inventário Físico Patrimonial dos Bens Móveis, Imóveis e Semoventes da Defensoria Pública do Distrito Federal, referentes ao exercício 2026, ONDE SE LÊ:\"...Núc",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634580&p=retificacao",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634811",
+   "titulo": "EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Fomento e Incentivo Cultural",
+   "trilha": "SECEC",
+   "sigla": "SECEC",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 00150-00012707/2025-01. INTERESSADO: ANDERSON PEREIRA DA SILVA GOMES. ASSUNTO: EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO. Ratifico, nos termos do artigo 74, da Lei nº 14.133, de 1º de abril de 2021 e art. 32 do Decreto nº 36.520/2015, a inexigibilidade de licitação em favor de ANDERSON PEREI",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634811&p=extrato-de-inexigibilidade-de-licitacao",
+   "sei": "00150-00012707/2025-01",
+   "cnpj": null,
+   "valor": "150,00"
+  },
+  {
+   "id": "634812",
+   "titulo": "EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Fomento e Incentivo Cultural",
+   "trilha": "SECEC",
+   "sigla": "SECEC",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 00150-00013411/2025-07. INTERESSADO: Linei Lopes da Silva. ASSUNTO: EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO. Ratifico, nos termos do artigo 74, da Lei nº 14.133, de 1º de abril de 2021 e art. 32 do Decreto nº 36.520/2015, a inexigibilidade de licitação em favor de Linei Lopes da Silva, no ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634812&p=extrato-de-inexigibilidade-de-licitacao",
+   "sei": "00150-00013411/2025-07",
+   "cnpj": null,
+   "valor": "900,00"
+  },
+  {
+   "id": "634813",
+   "titulo": "EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Fomento e Incentivo Cultural",
+   "trilha": "SECEC",
+   "sigla": "SECEC",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 00150-00013329/2025-74. INTERESSADO: JOSÉ BEZERRA DE BRITO NETO. ASSUNTO: EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO. Ratifico, nos termos do artigo 74, da Lei nº 14.133, de 1º de abril de 2021 e art. 32 do Decreto nº 36.520/2015, a inexigibilidade de licitação em favor de JOSÉ BEZERRA DE BRI",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634813&p=extrato-de-inexigibilidade-de-licitacao",
+   "sei": "00150-00013329/2025-74",
+   "cnpj": null,
+   "valor": "300,00"
+  },
+  {
+   "id": "634814",
+   "titulo": "EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Fomento e Incentivo Cultural",
+   "trilha": "SECEC",
+   "sigla": "SECEC",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 00150-00013789/2025-01. INTERESSADO: Suellen de Souza Leal. ASSUNTO: EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO. Ratifico, nos termos do artigo 74, da Lei nº 14.133, de 1º de abril de 2021 e art. 32 do Decreto nº 36.520/2015, a inexigibilidade de licitação em favor de Suellen de Souza Leal, n",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634814&p=extrato-de-inexigibilidade-de-licitacao",
+   "sei": "00150-00013789/2025-01",
+   "cnpj": null,
+   "valor": "1.950,00"
+  },
+  {
+   "id": "634815",
+   "titulo": "EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Fomento e Incentivo Cultural",
+   "trilha": "SECEC",
+   "sigla": "SECEC",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 00150-00012917/2025-91. INTERESSADO: Cristiana Gimenes Parada dos Santos. ASSUNTO: EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO. Ratifico, nos termos do artigo 75, da Lei nº 14.133/21, de 1 de abril de 2021 e art. 32 do Decreto nº 36.520/2015, a inexigibilidade de licitação em favor de Cristian",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634815&p=extrato-de-inexigibilidade-de-licitacao",
+   "sei": "00150-00012917/2025-91",
+   "cnpj": null,
+   "valor": "500,00"
+  },
+  {
+   "id": "634816",
+   "titulo": "EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Fomento e Incentivo Cultural",
+   "trilha": "SECEC",
+   "sigla": "SECEC",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 00150-00012930/2025-40. INTERESSADO: Débora Gonçalves Borburema. ASSUNTO: EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO. Ratifico, nos termos do artigo 75, da Lei nº 14.133/21, de 1 de abril de 2021 e art. 32 do Decreto nº 36.520/2015, a inexigibilidade de licitação em favor de Débora Gonçalves ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634816&p=extrato-de-inexigibilidade-de-licitacao",
+   "sei": "00150-00012930/2025-40",
+   "cnpj": null,
+   "valor": "200,00"
+  },
+  {
+   "id": "634817",
+   "titulo": "EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Fomento e Incentivo Cultural",
+   "trilha": "SECEC",
+   "sigla": "SECEC",
+   "sinais": [
+    "direta"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "PROCESSO: 00150-00013147/2025-01. INTERESSADO: GLEIZIANE PINHEIRO DOS SANTOS. ASSUNTO: EXTRATO DE INEXIGIBILIDADE DE LICITAÇÃO. Ratifico, nos termos do artigo 75, da Lei nº 14.133/21, de 1 de abril de 2021 e art. 32 do Decreto nº 36.520/2015, a inexigibilidade de licitação em favor de GLEIZIANE PINH",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634817&p=extrato-de-inexigibilidade-de-licitacao",
+   "sei": "00150-00013147/2025-01",
+   "cnpj": null,
+   "valor": "500,00"
+  },
+  {
+   "id": "634617",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "Subsecretaria de Gestão de Pessoas",
+   "trilha": "SEEDF",
+   "sigla": "SEEDF",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Ordem de Serviço 439, de 1º de outubro de 2026, publicado no DODF nº 184, de 02 de outubro de 2026, que autorizou afastamento mediante dispensa de ponto a ALISSON MATHEUS RODRIGUES, matrícula 2.002.106-2, ONDE SE LÊ: \"... nos dias 13 e 14/11/2026...\", LEIA-SE: \"...nos dias 13 e 14/8/2026...\".",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634617&p=retificacao",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634651",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "Superintendência da Região de Saúde Norte",
+   "trilha": "SESDF",
+   "sigla": "SESDF",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Ordem de Serviço nº 82, de 1º de agosto de 2018, da Superintendência da Região de Saúde Norte, da Secretaria de Estado de Saúde do Distrito Federal, do DODF nº 149 de 7 de agosto de 2018, página 49, o ato que averbou o tempo de serviço da servidora MARIA LUCIA PEREIRA MACHADO NOBRE, 138.447-3, En",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634651&p=retificacao",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634652",
+   "titulo": "RETIFICAÇÃO",
+   "tipo": "Retificacão",
+   "secao": "Seção II",
+   "orgao": "Superintendência da Região de Saúde Norte",
+   "trilha": "SESDF",
+   "sigla": "SESDF",
+   "sinais": [
+    "errata"
+   ],
+   "grupos": [
+    "risco"
+   ],
+   "trecho": "Na Ordem de Serviço nº 258, de 21 de setembro de 2026, publicada no DODF n° 176 de 22 de setembro de 2026, pág. 36, o ato que averbou o tempo de serviço da servidora JANAINA ALVES DE MELO NEVES, 194.906-3, Farmacêutico Bioquímico - Farmácia, Secretaria de Estado de Saúde do DF. ONDE SE LÊ:\"...455 di",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634652&p=retificacao",
+   "sei": "00060-00529413/2025-14",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634684",
+   "titulo": "ORDEM DE SERVIÇO Nº 34, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "ADMINISTRAÇÃO REGIONAL DE ÁGUA QUENTE",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "A ADMINISTRADORA REGIONAL DE ÁGUA QUENTE DO DISTRITO FEDERAL, no uso das atribuições regimentais que lhe confere o Artigo 42, do Regimento Interno das Administrações Regionais, aprovado pelo Decreto nº 38.094, de 28 de março de 2017, considerando a Lei nº 14.133, de 1º de abril de 2021, e consideran",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634684&p=ordem-de-servico-n-34-de-06-de-outubro-de-2026",
+   "sei": "04041-00001495/2026-42",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634699",
+   "titulo": "ORDEM DE SERVIÇO Nº 48, DE 05 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional de Águas Claras",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DE ÁGUAS CLARAS DO DISTRITO FEDERAL, Substituto, no uso das atribuições conferidas pelo artigo 42, do Regimento Interno aprovado pelo Decreto nº 38.094, de 28 de março de 2017 e Decreto nº 39.002, de 24 de abril de 2018, resolve:Art. 1º Designar JENNIFER CRISTINE DE SOUSA VI",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634699&p=ordem-de-servico-n-48-de-05-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634698",
+   "titulo": "ORDEM DE SERVIÇO Nº 49, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional de Águas Claras",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DE ÁGUAS CLARAS DO DISTRITO FEDERAL, Substituto, no uso de suas atribuições regimentais previstas no artigo 42, XI, do Regimento Interno das Administrações Regionais, aprovado pelo Decreto nº 38.094, de 28 de março de 2017, resolve:CONCEDER Licença Servidor, nos termos do ar",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634698&p=ordem-de-servico-n-49-de-06-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634570",
+   "titulo": "EXTRATO DO CONTRATO DE PRESTAÇÃO DE SERVIÇOS Nº 4/2026",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Administração Regional do Lago Sul",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "Processo: 00146-00000951/2026-71. DAS PARTES: O Distrito Federal, por meio da Administração Regional do Lago Sul, inscrita no CNPJ sob nº 16.615.705/0001-53 e a empresa BEMFRIO SERVIÇOS LTDA, inscrita no Cadastro Nacional de Pessoas Jurídicas nº 26.077.955/0001-30. DO OBJETO: Contrato de Prestação d",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634570&p=extrato-do-contrato-de-prestacao-de-servicos-n-42026",
+   "sei": "00146-00000951/2026-71",
+   "cnpj": "16.615.705/0001-53",
+   "valor": "24.837,00"
+  },
+  {
+   "id": "634571",
+   "titulo": "ORDEM DE SERVIÇO Nº 30, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional do Lago Sul",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DO LAGO SUL DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 42 do Regimento Interno das Administrações Regionais, aprovado pelo Decreto nº 38.094, de 28 de março de 2017 e em consonância aos Art.117 e Art.140 da Lei nº 14.133/2021, resolve:Art. 1º Design",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634571&p=ordem-de-servico-n-30-de-06-de-outubro-de-2026",
+   "sei": "00146-00000951/2026-71",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634635",
+   "titulo": "ORDEM DE SERVIÇO Nº 41, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional do Riacho Fundo I",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DO RIACHO FUNDO I DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 42, incisos XI e XXXVIII do Regimento Interno da Administração Regional, aprovado pelo Decreto nº 38.094, de 28 de março de 2017, resolve:Art. 1º Designar JULIO CESAR SANTOS DE MELO, matrí",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634635&p=ordem-de-servico-n-41-de-06-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634686",
+   "titulo": "EXTRATO DO TERMO DE CANCELAMENTO E DESCONSTITUIÇÃO DO PRIMEIRO TERMO ADITIVO AO CONTRATO Nº 02/2024",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Administração Regional do Setor de Indústria e Abastecimento",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "aditivo",
+    "segov"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "Processo SEI nº: 00309-00000595/2024-04 (autos vinculados: 00309-00001444/2026-27). Espécie: Termo de Cancelamento e Desconstituição do Primeiro Termo Aditivo ao Contrato de Locação de Imóvel ao Distrito Federal nº 02/2024. Partes: Distrito Federal, por intermédio da Administração Regional do Setor ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634686&p=extrato-do-termo-de-cancelamento-e-desconstituicao-do-primeiro-termo-aditivo-ao-contrato-n-022024",
+   "sei": "00309-00000595/2024-04",
+   "cnpj": "15.688.487/0001-14",
+   "valor": null
+  },
+  {
+   "id": "634632",
+   "titulo": "ORDEM DE SERVIÇO Nº 36, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional do Varjão",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DO VARJÃO DO DISTRITO FEDERAL, no uso de suas atribuições legais, que lhe confere o art. n° 42, do Regimento Interno das Administrações Regionais, Decreto nº 38.094/2017 e com fundamento no que dispõe o Art. n° 41, inciso II e seus parágrafos, Decreto nº 32.598/2010 e o art.",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634632&p=ordem-de-servico-n-36-de-06-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634631",
+   "titulo": "ORDEM DE SERVIÇO Nº 37, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional do Varjão",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DO VARJÃO DO DISTRITO FEDERAL, no uso das atribuições previstas no art. 42, do Decreto nº 38.094, de 28 de março de 2017, combinado com o Inciso II e parágrafo 5º, do Artigo 41, do Decreto nº 32.598, de 15 de dezembro de 2010, e considerando a necessidade de atualização dos ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634631&p=ordem-de-servico-n-37-de-06-de-outubro-de-2026",
+   "sei": "00303-00000601/2023-01",
+   "cnpj": "07.522.669/0001-92",
+   "valor": null
+  },
+  {
+   "id": "634630",
+   "titulo": "ORDEM DE SERVIÇO Nº 38, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional do Varjão",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DO VARJÃO DO DISTRITO FEDERAL, no uso das atribuições previstas no art. 42, do Decreto nº 38.094, de 28 de março de 2017, combinado com o Inciso II e parágrafo 5º, do Artigo 41, do Decreto nº 32.598, de 15 de dezembro de 2010, e considerando a necessidade de atualização dos ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634630&p=ordem-de-servico-n-38-de-06-de-outubro-de-2026",
+   "sei": "00303-00000069/2023-14",
+   "cnpj": "00.082.024/0001-37",
+   "valor": null
+  },
+  {
+   "id": "634629",
+   "titulo": "ORDEM DE SERVIÇO Nº 39, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "Administração Regional do Varjão",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O ADMINISTRADOR REGIONAL DO VARJÃO DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 42, incisos XI e XXXVIII, do Regimento Interno das Administrações Regionais, aprovado pelo Decreto nº 38.094, de 28 de março de 2017 e considerando os termos do Decreto nº 39.537, de 18 de dezembr",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634629&p=ordem-de-servico-n-39-de-06-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634688",
+   "titulo": "ORDEM DE SERVIÇO Nº 08, DE 1º DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "COORDENAÇÃO DE ADMINISTRAÇÃO GERAL",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades > RA-VIII",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O COORDENADOR DE ADMINISTRAÇÃO GERAL, DA ADMINISTRAÇÃO REGIONAL DO NÚCLEO BANDEIRANTE DO DISTRITO FEDERAL, no uso das atribuições que lhe conferem os incisos V e VI do art. 11 do Regimento Interno das Administrações Regionais, aprovado pelo Decreto nº 38.094, de 28 de março de 2017, com fundamento n",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634688&p=ordem-de-servico-n-08-de-1-de-outubro-de-2026",
+   "sei": "00136-00000972/2026-24",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634601",
+   "titulo": "ORDEM DE SERVIÇO Nº 70, DE 05 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "COORDENAÇÃO DE ADMINISTRAÇÃO GERAL",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades > RA-IV",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O COORDENADOR DE ADMINISTRAÇÃO GERAL, DA ADMINISTRAÇÃO REGIONAL DE BRAZLÂNDIA DO DISTRITO FEDERAL, no uso de suas atribuições regimentais que lhe confere o Artigo 42, inciso XI do Regimento Interno das Administrações Regionais, aprovado pelo Decreto nº 38.094, de 28 de março de 2017, resolve:Art. 1°",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634601&p=ordem-de-servico-n-70-de-05-de-outubro-de-2026",
+   "sei": "00133-00001325/2026-14",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634687",
+   "titulo": "ORDEM DE SERVIÇO Nº 71, DE 07 DE OUTUBRO DE 2026",
+   "tipo": "Ordem de serviço numerada",
+   "secao": "Seção II",
+   "orgao": "COORDENAÇÃO DE ADMINISTRAÇÃO GERAL",
+   "trilha": "SEGOV > Secretaria Executiva Das Cidades > RA-IV",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O COORDENADOR DE ADMINISTRAÇÃO GERAL, DA ADMINISTRAÇÃO REGIONAL DE BRAZLÂNDIA DO DISTRITO FEDERAL, no uso das atribuições regimentais que lhe confere o inciso V, do Art. 11, do Decreto 38.094, de 28/03/2017, resolve:Art. 1º Conceder licença-servidor, nos termos do Art. 139, da Lei Complementar nº 84",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634687&p=ordem-de-servico-n-71-de-07-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634908",
+   "titulo": "DECRETO Nº 49.503, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "decreto"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, incisos VII, X e XXVI, da Lei Orgânica do Distrito Federal, o art. 3º, incisos I e II, da Lei nº 2.299, de 21 de janeiro de 1999, a Lei nº 6.525, de 1º de abril de 2020, o Decreto nº 40.610, de 08 de abril de 202",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634908&p=decreto-n-49503-de-7-de-outubro-de-2026",
+   "sei": "04039-00001026/2026-45",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634913",
+   "titulo": "DECRETO Nº 49.504, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "decreto"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, incisos VII e X, da Lei Orgânica do Distrito Federal, DECRETA:CAPÍTULO IDAS DISPOSIÇÕES GERAISArt. 1º Este Decreto estabelece diretrizes de planejamento governamental para a formulação, implementação, monitoramen",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634913&p=decreto-n-49504-de-7-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634914",
+   "titulo": "DECRETO Nº 49.505, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634914&p=decreto-n-49505-de-7-de-outubro-de-2026",
+   "sei": "00147-00000961/2026-89",
+   "cnpj": null,
+   "valor": "715,00"
+  },
+  {
+   "id": "634915",
+   "titulo": "DECRETO Nº 49.506, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634915&p=decreto-n-49506-de-7-de-outubro-de-2026",
+   "sei": "00002-00000567/2026-77",
+   "cnpj": null,
+   "valor": "30.000,00"
+  },
+  {
+   "id": "634916",
+   "titulo": "DECRETO Nº 49.507, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634916&p=decreto-n-49507-de-7-de-outubro-de-2026",
+   "sei": "00196-00001468/2026-28",
+   "cnpj": null,
+   "valor": "33.000,00"
+  },
+  {
+   "id": "634920",
+   "titulo": "DECRETO Nº 49.508, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634920&p=decreto-n-49508-de-7-de-outubro-de-2026",
+   "sei": "00110-00002070/2026-66",
+   "cnpj": null,
+   "valor": "60.000,00"
+  },
+  {
+   "id": "634917",
+   "titulo": "DECRETO Nº 49.509, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634917&p=decreto-n-49509-de-7-de-outubro-de-2026",
+   "sei": "00134-00001847/2026-98",
+   "cnpj": null,
+   "valor": "198.542,00"
+  },
+  {
+   "id": "634921",
+   "titulo": "DECRETO Nº 49.510, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634921&p=decreto-n-49510-de-7-de-outubro-de-2026",
+   "sei": "00392-00017517/2026-64",
+   "cnpj": null,
+   "valor": "200.000,00"
+  },
+  {
+   "id": "634918",
+   "titulo": "DECRETO Nº 49.511, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634918&p=decreto-n-49511-de-7-de-outubro-de-2026",
+   "sei": "04030-00002027/2026-51",
+   "cnpj": null,
+   "valor": "308.887,00"
+  },
+  {
+   "id": "634919",
+   "titulo": "DECRETO Nº 49.512, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634919&p=decreto-n-49512-de-7-de-outubro-de-2026",
+   "sei": "04011-00005260/2026-31",
+   "cnpj": null,
+   "valor": "371.282,00"
+  },
+  {
+   "id": "634922",
+   "titulo": "DECRETO Nº 49.513, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634922&p=decreto-n-49513-de-7-de-outubro-de-2026",
+   "sei": "00391-00011436/2026-89",
+   "cnpj": null,
+   "valor": "530.000,00"
+  },
+  {
+   "id": "634923",
+   "titulo": "DECRETO Nº 49.514, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, I, \"a\", da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.3",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634923&p=decreto-n-49514-de-7-de-outubro-de-2026",
+   "sei": "04044-00061264/2026-11",
+   "cnpj": null,
+   "valor": "2.140.381,00"
+  },
+  {
+   "id": "634924",
+   "titulo": "DECRETO Nº 49.515, DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção I",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "credito",
+    "decreto"
+   ],
+   "grupos": [
+    "dinheiro",
+    "governo"
+   ],
+   "trecho": "A GOVERNADORA DO DISTRITO FEDERAL, no uso das atribuições que lhe confere o artigo 100, inciso VII, da Lei Orgânica do Distrito Federal, combinado com o art. 5º, V, da Lei nº 7.842, de 30 de dezembro de 2025, e com o art. 41, I, das Normas Gerais de Direito Financeiro, aprovadas pela Lei nº 4.320, d",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634924&p=decreto-n-49515-de-7-de-outubro-de-2026",
+   "sei": "00095-00000017/2026-48",
+   "cnpj": null,
+   "valor": "45.200.000,00"
+  },
+  {
+   "id": "634911",
+   "titulo": "DECRETO DE 7 DE OUTUBRO DE 2026",
+   "tipo": "Decreto",
+   "secao": "Seção II",
+   "orgao": "Poder Executivo",
+   "trilha": "",
+   "sigla": "Poder Executivo",
+   "sinais": [
+    "decreto"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "NOMEAR REGINALDO ROCHA SARDINHA para exercer o Cargo de Natureza Política, Símbolo CNP-04, SIGRH 09300061, de Administrador Regional, da Administração Regional do Sudoeste/Octogonal do Distrito Federal.EXONERAR, por estar sendo nomeado para outro cargo, WILSON VALENTE LIMA do Cargo de Natureza Polít",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634911&p=decreto-de-7-de-outubro-de-2026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634574",
+   "titulo": "RELAÇÃO - SEGOV/COMURB/DIMURB/GAFEPS",
+   "tipo": "Ato",
+   "secao": "Seção III",
+   "orgao": "Secretaria Executiva das Cidades",
+   "trilha": "SEGOV",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "RELAÇÃO DE 20 VENDEDORES AMBULANTES CONTEMPLADOS, PELO EDITAL Nº 40/2026-SEGOV, MODALIDADE CAIXEIRO, PARA ÁREA PÚBLICA NO SRPN QD.901 TRECHO 01 - ASA NORTE/DF E GRAMADO PRÓXIMO AO PLANETÁRIO DE BRASÍLIA, PARA EVENTO \"SHOW ZÉ NETO &amp; CRISTIANO - 15 ANOS\", DIA 17/10/2026.NºVENDEDORES AMBULANTES - C",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634574&p=relacao-segovcomurbdimurbgafeps",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634576",
+   "titulo": "RELAÇÃO DE 10 VENDEDORES AMBULANTES CONTEMPLADOS, PELO EDITAL Nº 40/2026-SEGOV, MODALIDADE BARRACA, PARA ÁREA PÚBLICA NO GRAMADO AO LADO ESTACIONAMENTO DO PLANETÁRIO DE BRASÍLIA - BRASÍLIA/DF, PARA EVENTO \"SHOW ZÉ NETO & CRISTIANO - 15 ANOS\", DIA 17/10/2026",
+   "tipo": "Ato",
+   "secao": "Seção III",
+   "orgao": "Secretaria Executiva das Cidades",
+   "trilha": "SEGOV",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "NºVENDEDORES AMBULANTES - BARRACA - PLANETÁRIOCPF1ANTONIA DA CONCEIÇÃOXXX.581.091-XX2IRENE FERREIRA DE MORAESXXX.373.941-XX",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634576&p=relacao-de-10-vendedores-ambulantes-contemplados-pelo-edital-n-402026segov-modalidade-barraca-para-area-publica-no-gramado-ao-lado-estacionamento-do-planetario-de-brasilia-brasiliadf-para-evento-show-ze-neto-cristiano-15-anos-dia-17102026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634572",
+   "titulo": "RELAÇÃO DE 15 VENDEDORES AMBULANTES CONTEMPLADOS, PELO EDITAL Nº 39/2026-SEGOV, MODALIDADE BARRACA, PARA ÁREA PÚBLICA NO 2º QUADRANTE, GRAMADO EM FRENTE AO MUSEU NACIONAL, ESPLANADA DOS MINISTÉRIOS - BRASÍLIA/DF, PARA EVENTO \"FESTA DA PADROEIRA - NOSSA SENHORA APARECIDA 2026\", DIA 12/10/2026.",
+   "tipo": "Ato",
+   "secao": "Seção III",
+   "orgao": "Secretaria Executiva das Cidades",
+   "trilha": "SEGOV",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "NºVENDEDORES AMBULANTES - BARRACACPF1ALEX SANDRO BATISTA LEALXXX.614.941-XX2CARLOS RODRIGO ARAUJO DOS SANTOSXXX.644.931-XX3GABRIEL CALIXTA DE SOUSAXXX.195.541-XX4GABRIEL OLIVEIRA VENANCIOXXX.820.521-XX",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634572&p=relacao-de-15-vendedores-ambulantes-contemplados-pelo-edital-n-392026segov-modalidade-barraca-para-area-publica-no-2-quadrante-gramado-em-frente-ao-museu-nacional-esplanada-dos-ministerios-brasiliadf-para-evento-festa-da-padroeira-nossa-senhora-aparecida-2026-dia-12102026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634575",
+   "titulo": "RELAÇÃO DE 20 VENDEDORES AMBULANTES CONTEMPLADOS, PELO EDITAL Nº 40/2026-SEGOV, MODALIDADE BARRACA, PARA ÁREA PÚBLICA NO SRPN QD.901 TRECHO 01 - ASA NORTE/DF, PARA EVENTO \"SHOW ZÉ NETO & CRISTIANO - 15 ANOS\", DIA 17/10/2026.",
+   "tipo": "Ato",
+   "secao": "Seção III",
+   "orgao": "Secretaria Executiva das Cidades",
+   "trilha": "SEGOV",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "NºVENDEDORES AMBULANTES - BARRACA - SRPN QD.901CPF1ALEXANDRE HENRIQUE DE LIMAXXX.800.708-XX2ANA KAROLYNA RIBEIRO COUTINHOXXX",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634575&p=relacao-de-20-vendedores-ambulantes-contemplados-pelo-edital-n-402026segov-modalidade-barraca-para-area-publica-no-srpn-qd901-trecho-01-asa-nortedf-para-evento-show-ze-neto-cristiano-15-anos-dia-17102026",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634558",
+   "titulo": "PORTARIA Nº 100, DE 06 DE OUTUBRO DE 2026",
+   "tipo": "Portaria numerada",
+   "secao": "Seção II",
+   "orgao": "Secretaria de Estado de Governo",
+   "trilha": "",
+   "sigla": "SEGOV",
+   "sinais": [
+    "segov"
+   ],
+   "grupos": [
+    "governo"
+   ],
+   "trecho": "O SECRETÁRIO DE ESTADO DE GOVERNO DO DISTRITO FEDERAL, no uso de suas competências previstas no artigo 105, da Lei Orgânica do Distrito Federal e tendo em vista o disposto no Decreto nº 39.002, de 24 de abril de 2018, que regulamentou os artigos 44 e 45 da Lei Complementar nº 840, de 23 de dezembro ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634558&p=portaria-n-100-de-06-de-outubro-de-2026",
+   "sei": "04018-00001189/2021-16",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634758",
+   "titulo": "EXTRATO DE TERMO ADITIVO",
+   "tipo": "Extrato de termo aditivo",
+   "secao": "Seção III",
+   "orgao": "Companhia de Saneamento Ambiental",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "1º Termo Aditivo ao Contrato 9998/2025, publicado no DODF em 17/06/2025. ASSINATURA: 06/10/2026.PROCESSO GDOC nº 00092-00007168/2025-08. ALTERAÇÃO DE CLÁUSULAS: PREÇO/VALOR: O valor do presente termo aditivo é de R$ 288.000,00 (duzentos e oitenta e oito mil reais). ASSINANTES: Pela CAESB: Luís Antôn",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634758&p=extrato-de-termo-aditivo",
+   "sei": "00092-00007168/2025-08",
+   "cnpj": null,
+   "valor": "288.000,00"
+  },
+  {
+   "id": "634759",
+   "titulo": "EXTRATO DE TERMO ADITIVO",
+   "tipo": "Extrato de termo aditivo",
+   "secao": "Seção III",
+   "orgao": "Companhia de Saneamento Ambiental",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "2º Termo Aditivo ao Contrato 9842/2024, publicado no DODF em 01/11/2024. ASSINATURA: 06/10/2026.PROCESSO GDOC nº 00092-00007731/2024-82. ALTERAÇÃO DE CLÁUSULAS: VIGÊNCIA: Fica prorrogado o prazo de vigência do contrato por mais 365 (trezentos e sessenta e cinco) dia(s), passando seu término de 28/10",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634759&p=extrato-de-termo-aditivo",
+   "sei": "00092-00007731/2024-82",
+   "cnpj": null,
+   "valor": "5.080.203,24"
+  },
+  {
+   "id": "634761",
+   "titulo": "EXTRATO DE TERMO ADITIVO",
+   "tipo": "Extrato de termo aditivo",
+   "secao": "Seção III",
+   "orgao": "Companhia de Saneamento Ambiental",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "1º Termo Aditivo ao Contrato 10221/2026, publicado no DODF em 21/08/2026. ASSINATURA: 06/10/2026.PROCESSO GDOC nº 00092-00027927/2025-03. ALTERAÇÃO DE OUTRAS CLÁUSULAS: “[...], a empresa GOIÁS COMERCIAL DE BOMBAS E ARTESIANOS LTDA., inscrita no CNPJ sob o nº 00.760.470/0002-34, CF/DF nº 080702370027",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634761&p=extrato-de-termo-aditivo",
+   "sei": "00092-00027927/2025-03",
+   "cnpj": "00.760.470/0002-34",
+   "valor": null
+  },
+  {
+   "id": "634851",
+   "titulo": "EXTRATO DO 2º TERMO ADITIVO AO CONTRATO Nº 32/2024",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Departamento de Estradas de Rodagem",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO: 00113-00011546/2023-22; PARTES: DER/DF; empresa: GRÁFICA E EDITORA MOVIMENTO LTDA, CNPJ 08.220.275/0001-42; Objeto: prorrogação de prazo; Fonte de Recurso 237; Nota de Empenho: 2026NE01664, data: 04/09/2026, valor: R$ 300.000,00; Prazo de Vigência: 24 (vinte e quatro) meses; Data da Assina",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634851&p=extrato-do-2-termo-aditivo-ao-contrato-n-322024",
+   "sei": "00113-00011546/2023-22",
+   "cnpj": "08.220.275/0001-42",
+   "valor": "300.000,00"
+  },
+  {
+   "id": "634853",
+   "titulo": "EXTRATO DO 3º TERMO DE APOSTILAMENTO AO CONTRATO Nº 01/2024",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Departamento de Estradas de Rodagem",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO nº: 00113-00014115/2023-18; CONTRATANTE: DEPARTAMENTO DE ESTRADAS DE RODAGEM DO DISTRITO FEDERAL - DER/DF, CNPJ 00.070.532/0001-03; CONTRATADA: WF CONSTRUÇÕES E INCORPORAÇÕES LTDA, CNPJ nº 21.978.159/0001-55; OBJETO: reajustar valor do contrato. FONTE DE RECURSO: 100, 183, 220 e 237; VALOR ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634853&p=extrato-do-3-termo-de-apostilamento-ao-contrato-n-012024",
+   "sei": "00113-00014115/2023-18",
+   "cnpj": "00.070.532/0001-03",
+   "valor": "3.680.666,57"
+  },
+  {
+   "id": "634855",
+   "titulo": "EXTRATO DO 4º TERMO ADITIVO AO CONTRATO Nº 36/2024",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Departamento de Estradas de Rodagem",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO: 00113-00005051/2023-64; PARTES: DER/DF; empresa: RR GUILHERME AUTOMÓVEIS LTDA, CNPJ 04.689.638/0001-32; Objeto: prorrogação do prazo de vigência e atualização do valor do contrato; Fonte de Recurso 100 e 237; Nota de Empenho nº: 2026NE01813, valor: R$ 40.000,00; e 2026NE01814, valor: R$ 10",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634855&p=extrato-do-4-termo-aditivo-ao-contrato-n-362024",
+   "sei": "00113-00005051/2023-64",
+   "cnpj": "04.689.638/0001-32",
+   "valor": "40.000,00"
+  },
+  {
+   "id": "634852",
+   "titulo": "EXTRATO DO 6º TERMO ADITIVO AO CONTRATO Nº 79/2022",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Departamento de Estradas de Rodagem",
+   "trilha": "SODF",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO: 00113-00011275/2022-24; CONTRATANTE: DER/DF, CNPJ 00.070.532/0001-03; CONTRATADA: MR PEÇAS E SERVIÇOS AUTOMOTORES LTDA., CNPJ 13.480.042/0001-19; OBJETO: prorrogação; FONTE DE RECURSO: 100, 161, 183, 220 e 237; VALOR: R$ 200.259,00 (duzentos mil duzentos e cinquenta e nove reais); PRAZO DE",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634852&p=extrato-do-6-termo-aditivo-ao-contrato-n-792022",
+   "sei": "00113-00011275/2022-24",
+   "cnpj": "00.070.532/0001-03",
+   "valor": "200.259,00"
+  },
+  {
+   "id": "634563",
+   "titulo": "EXTRATO DO DÉCIMO PRIMEIRO TERMO ADITIVO AO CONTRATO ADMINISTRATIVO Nº 40/2022",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Departamento de Logística e Finanças",
+   "trilha": "SSPDF > PMDF",
+   "sigla": "SSPDF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO SEI n.º 00054-00009584/2021-22 – PARTES: DF/PMDF X VIVA SERVIÇOS LTDA. OBJETO: prorrogação do prazo de vigência do contrato, cujo objeto é a prestação de execução de serviços contínuos e sob demanda de limpeza, conservação e higienização, com fornecimento de materiais e equipamentos, nos ed",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634563&p=extrato-do-decimo-primeiro-termo-aditivo-ao-contrato-administrativo-n-402022",
+   "sei": "00054-00009584/2021-22",
+   "cnpj": null,
+   "valor": "1.915.846,91"
+  },
+  {
+   "id": "634724",
+   "titulo": "EXTRATO DE TERMO ADITIVO",
+   "tipo": "Extrato de termo aditivo",
+   "secao": "Seção III",
+   "orgao": "Fundo de Assistência à Saúde dos Deputados Distritais e Servidores da Câmara Legislativa",
+   "trilha": "Poder Legislativo > CLDF",
+   "sigla": "Poder Legislativo",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "Processo nº SEI 00001-00008954/2024-18. Quarto Termo Aditivo ao Termo de Credenciamento nº 39/2024, firmado entre o Fundo de Assistência à Saúde dos Deputados Distritais e Servidores da Câmara Legislativa do Distrito Federal – FASCAL e a DIAGNÓSTICOS DA AMÉRICA S.A – EXAME MEDICINA DIAGNÓSTICA. Obje",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634724&p=extrato-de-termo-aditivo",
+   "sei": "00001-00008954/2024-18",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634723",
+   "titulo": "EXTRATO DE TERMO ADITIVO",
+   "tipo": "Extrato de termo aditivo",
+   "secao": "Seção III",
+   "orgao": "Fundo de Assistência à Saúde dos Deputados Distritais e Servidores da Câmara Legislativa",
+   "trilha": "Poder Legislativo > CLDF",
+   "sigla": "Poder Legislativo",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "Processo nº SEI 00001-00008954/2024-18. Quinto Termo Aditivo ao Termo de Credenciamento nº 39/2024, firmado entre o Fundo de Assistência à Saúde dos Deputados Distritais e Servidores da Câmara Legislativa do Distrito Federal – FASCAL e a DIAGNÓSTICOS DA AMÉRICA S.A – EXAME MEDICINA DIAGNÓSTICA. Obje",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634723&p=extrato-de-termo-aditivo",
+   "sei": "00001-00008954/2024-18",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634865",
+   "titulo": "I TERMO ADITIVO AO CONTRATO BRB Nº 448/2025",
+   "tipo": "Termo aditivo",
+   "secao": "Seção III",
+   "orgao": "GERÊNCIA DE CONTRATAÇÕES",
+   "trilha": "SEEC > BRB > Diretoria Executiva De Pessoas, Administração E Retaguarda > Superintendência De Logística E Operações",
+   "sigla": "SEEC",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "Locador: ROBERTO KIVITS NOGUEIRA. Objeto: Locação de espaço provisório para instalação do ponto de atendimento em Maceió/AL. Fica prorrogado por 12 meses a partir de 06/10/2026. Signatários: Pelo BRB: Hugo Andreolly A. C. Santos. Pelo locador: Roberto K. Nogueira. Proc. nº 1.285/2025. Thiago H. M. d",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634865&p=i-termo-aditivo-ao-contrato-brb-n-4482025",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634868",
+   "titulo": "I TERMO ADITIVO AO CONTRATO BRB Nº 449/2025",
+   "tipo": "Termo aditivo",
+   "secao": "Seção III",
+   "orgao": "GERÊNCIA DE CONTRATAÇÕES",
+   "trilha": "SEEC > BRB > Diretoria Executiva De Pessoas, Administração E Retaguarda > Superintendência De Logística E Operações",
+   "sigla": "SEEC",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "Empresa: MB IMÓVEIS LTDA. Objeto: Locação de imóvel para instalação do ponto de atendimento provisório em Maceió/AL. Fica prorrogado por 12 meses a partir de 09/10/2026. Signatários: Pelo BRB: Hugo Andreolly A. C. Santos. Pela contratada: Sylvia R. de M. Tenório, Anna Rafaella de M. B. Cavalcante e ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634868&p=i-termo-aditivo-ao-contrato-brb-n-4492025",
+   "sei": null,
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634885",
+   "titulo": "EXTRATO DO PRIMEIRO TERMO ADITIVO AO CONTRATO ADMINISTRATIVO Nº 04/2026-PCDF",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "POLÍCIA CIVIL",
+   "trilha": "SSPDF",
+   "sigla": "SSPDF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO: 00052-00019883/2024-74 - PARTES: Distrito Federal/Polícia Civil X Elo Scientific Indústria e Comércio Ltda. OBJETO: Prorrogação do prazo de vigência do Contrato n.º 04/2026-PCDF por mais 30 (trinta) dias a partir de 04/08/2026 até 02/09/2026, na forma do art. 105 da Lei n.º 14.133, de 2021",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634885&p=extrato-do-primeiro-termo-aditivo-ao-contrato-administrativo-n-042026pcdf",
+   "sei": "00052-00019883/2024-74",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634884",
+   "titulo": "EXTRATO DO PRIMEIRO TERMO ADITIVO AO CONTRATO ADMINISTRATIVO Nº 32/2025-PCDF",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "POLÍCIA CIVIL",
+   "trilha": "SSPDF",
+   "sigla": "SSPDF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO: 00052-00036107/2024-39 - PARTES: Distrito Federal/Polícia Civil X Life Technologies Brasil com e Ind. de Produtos para Biotecnologia Ltda. OBJETO: Alteração do endereço da sede da CONTRATADA constante no preâmbulo contratual e a prorrogação do prazo de vigência do Contrato por mais 106 (ce",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634884&p=extrato-do-primeiro-termo-aditivo-ao-contrato-administrativo-n-322025pcdf",
+   "sei": "00052-00036107/2024-39",
+   "cnpj": null,
+   "valor": null
+  },
+  {
+   "id": "634696",
+   "titulo": "EXTRATO DO 1º TERMO ADITIVO AO CONTRATO ADMINISTRATIVO Nº 142/2025",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "SECRETARIA-EXECUTIVA DE GESTÃO ADMINISTRATIVA",
+   "trilha": "SEEDF",
+   "sigla": "SEEDF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "Processo nº: 00080-00258248/2025-36 - Partes: SEE/DF X AGS COMÉRCIO DE PRODUTOS ALIMENTÍCIOS LTDA. Objeto: A prorrogação do prazo de vigência do contrato por mais 12 meses, a partir de 03/10/2026 até 02/10/2027, podendo ser prorrogada por interesse das partes por até 5 anos, observados os termos e a",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634696&p=extrato-do-1-termo-aditivo-ao-contrato-administrativo-n-1422025",
+   "sei": "00080-00258248/2025-36",
+   "cnpj": null,
+   "valor": "176.957,04"
+  },
+  {
+   "id": "634849",
+   "titulo": "EXTRATO DO CONVÊNIO Nº 10/2026 - SEAGRI-DF/NOVACAP",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Secretaria de Estado da Agricultura, Abastecimento e Desenvolvimento Rural",
+   "trilha": "",
+   "sigla": "SEAGRI",
+   "sinais": [
+    "convenio"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "Processo: 00070-00001540/2025-16 Partícipes: SECRETARIA DE ESTADO DA AGRICULTURA, ABASTECIMENTO E DESENVOLVIMENTO RURAL DO DISTRITO FEDERAL - SEAGRI/DF (Concedente) e a COMPANHIA URBANIZADORA DA NOVA CAPITAL DO BRASIL - NOVACAP (Convenente). Objeto: estabelecer condições de cooperação técnica entre ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634849&p=extrato-do-convenio-n-102026-seagridfnovacap",
+   "sei": "00070-00001540/2025-16",
+   "cnpj": null,
+   "valor": "7.425.470,45"
+  },
+  {
+   "id": "634697",
+   "titulo": "EXTRATO DO 1º TERMO ADITIVO AO TERMO DE COLABORAÇÃO Nº 04/2025",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Secretaria de Estado de Educação",
+   "trilha": "",
+   "sigla": "SEEDF",
+   "sinais": [
+    "aditivo",
+    "convenio"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "Processo SEI: 00080-00165957/2025-79 - MROSC: 0009-02-900000001444/2025-31 - Partes: Secretaria de Estado de Educação do Distrito Federal, CNPJ Nº 00.394.676/0001-07 e a Organização da Sociedade Civil INSTITUTO SOCIAL E EDUCACIONAL MÃOS SOLIDÁRIAS, CNPJ Nº 05.488.350/0001-62 – Vigência: a partir de ",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634697&p=extrato-do-1-termo-aditivo-ao-termo-de-colaboracao-n-042025",
+   "sei": "00080-00165957/2025-79",
+   "cnpj": "00.394.676/0001-07",
+   "valor": "751.654,40"
+  },
+  {
+   "id": "634874",
+   "titulo": "EXTRATO DO PRIMEIRO TERMO ADITIVO DE ALTERAÇÃO FINANCEIRA AO CONTRATO Nº 005/2026 - SODF",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Secretaria de Estado de Obras e Infraestrutura",
+   "trilha": "",
+   "sigla": "SODF",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO Nº. 00110-00000935/2025-79 (Licitação e Contrato); PROCESSO Nº. 00110-00001284/2026-15 (1º Aditivo) - PARTES: SECRETARIA DE ESTADO DE OBRAS E INFRAESTRUTURA DO DISTRITO FEDERAL X BASEVI CONSTRUÇÕES S/A, CNPJ nº 00.016.576/0001-47, com sede em sede na SCIA Quadra 14, Conjunto 04, Lote 07 – G",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634874&p=extrato-do-primeiro-termo-aditivo-de-alteracao-financeira-ao-contrato-n-0052026-sodf",
+   "sei": "00110-00000935/2025-79",
+   "cnpj": "00.016.576/0001-47",
+   "valor": "744.896,53"
+  },
+  {
+   "id": "634739",
+   "titulo": "EXTRATO DO 1º TERMO ADITIVO AO CONTRATO DE PRESTAÇÃO DE SERVIÇOS Nº 13/2025",
+   "tipo": "Extrato",
+   "secao": "Seção III",
+   "orgao": "Subsecretaria de Administração Geral",
+   "trilha": "SETUR",
+   "sigla": "SETUR",
+   "sinais": [
+    "aditivo"
+   ],
+   "grupos": [
+    "dinheiro"
+   ],
+   "trecho": "PROCESSO: 04009-00001591/2025-33. DAS PARTES: DISTRITO FEDERAL, por meio da SECRETARIA DE ESTADO DE TURISMO DO DISTRITO FEDERAL — SETUR, inscrita no CNPJ nº 33.143.334/0001-73, e a empresa CLEITON GONÇALVES ARQUITETURA - SERVIÇOS DE ARQUITETURA LTDA, inscrita no CNPJ nº 37.897.521/0001-01. DO OBJETO",
+   "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634739&p=extrato-do-1-termo-aditivo-ao-contrato-de-prestacao-de-servicos-n-132025",
+   "sei": "04009-00001591/2025-33",
+   "cnpj": "33.143.334/0001-73",
+   "valor": null
+  }
+ ]
+}

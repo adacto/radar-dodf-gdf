@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Radar DODF</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --azul:#0071bb; --azul2:#0098d9;
+  --risco:#C41E3A; --dinheiro:#f4a100; --governo:#512178;
+  --bg:#f3f6f9; --sup:#fff; --fg:#10222f; --fg2:#4a6577; --linha:#d8e3ec;
+  --disp:"Unbounded",system-ui,sans-serif; --txt:"IBM Plex Sans",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --azul:#2fb4e9; --azul2:#63c6e9; --risco:#ff6b82; --dinheiro:#fabb11; --governo:#a98fc4;
+  --bg:#0b1620; --sup:#132430; --fg:#e8f1f7; --fg2:#92aec1; --linha:#233b4d; color-scheme:dark;}}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--txt);margin:0;line-height:1.45;
+  font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+.wrap{max-width:52rem;margin:0 auto;padding-inline:16px;padding-block:0 3rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--azul);color:#fff;
+  margin-inline:-16px;padding:.7rem 16px;display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:baseline}
+header b{font-family:var(--disp);font-weight:800;font-size:1rem}
+header span{font-size:.78rem;opacity:.92}
+.pulso{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0 1.5rem}
+.pulso div{background:var(--sup);border:1px solid var(--linha);border-radius:3px;padding:.5rem .7rem;flex:1 1 7rem;min-width:0}
+.pulso b{display:block;font-family:var(--disp);font-weight:600;font-size:1.3rem;line-height:1.1}
+.pulso small{color:var(--fg2);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+h2{font-family:var(--disp);font-weight:600;font-size:.95rem;margin:1.7rem 0 .6rem;display:flex;gap:.5rem;align-items:baseline}
+h2 i{width:.65rem;height:.65rem;border-radius:2px;flex:none;font-style:normal}
+h2 em{font-style:normal;font-family:var(--txt);font-weight:600;font-size:.72rem;color:var(--fg2);
+  text-transform:uppercase;letter-spacing:.07em;margin-left:auto}
+.ato{background:var(--sup);border:1px solid var(--linha);border-left:4px solid var(--c);
+  border-radius:3px;margin-bottom:.4rem;padding:.65rem .8rem}
+.ato .t{font-size:.86rem;font-weight:600;display:block;color:inherit;text-decoration:none}
+.ato .t:hover{color:var(--azul)}
+.ato .o{color:var(--fg2);font-size:.75rem;margin-top:.15rem}
+.ato .cps{display:flex;flex-wrap:wrap;gap:.25rem .7rem;margin-top:.35rem;font-size:.72rem;color:var(--fg2)}
+.ato .cps b{color:var(--fg);font-weight:600}
+.vl{color:var(--risco);font-weight:600}
+.tag{display:inline-block;font-size:.65rem;letter-spacing:.04em;text-transform:uppercase;color:var(--fg2);
+  border:1px solid var(--linha);border-radius:2px;padding:0 .3rem;margin-right:.25rem}
+.rodape{border-top:2px solid var(--linha);padding-top:.9rem;margin-top:2rem;font-size:.76rem;color:var(--fg2)}
+.rodape h3{font-family:var(--disp);font-weight:600;font-size:.76rem;color:var(--fg);margin:0 0 .4rem;
+  text-transform:uppercase;letter-spacing:.06em}
+.rodape li{margin-bottom:.3rem}
+.erro{background:var(--sup);border:1px solid var(--risco);border-radius:3px;padding:1rem;color:var(--fg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><b>Radar DODF</b><span id="hdata">carregando…</span><span id="hed"></span></header>
+<div class="pulso" id="pulso"></div>
+<main id="app"></main>
+<div class="rodape">
+<h3>O que este boletim não cobre</h3>
+<ul>
+<li>Varredura completa da edição do dia pela API do DODF — as três seções, todas as páginas. Cada item leva ao ato original.</li>
+<li><b>O TCDF não está aqui.</b> O Tribunal não publica no DODF como órgão demandante; matérias que o citam são de outros órgãos cumprindo decisão dele.</li>
+<li><b>Atos de pessoal estão subcontados.</b> Nomeações e exonerações raramente usam esses verbos no texto visível.</li>
+<li>Alguns atos são publicados como imagem, e deles não se extrai processo, CNPJ nem valor.</li>
+<li>O agrupamento por secretaria usa a trilha hierárquica, nunca o nome: &ldquo;Diretoria de Saúde&rdquo;, por exemplo, é do Corpo de Bombeiros.</li>
+</ul>
+</div>
+</div>
+<script>
+(function(){
+  var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
+  var GRUPOS=[["risco","Exige atenção","var(--risco)"],
+              ["governo","Governo e SEGOV","var(--governo)"],
+              ["dinheiro","Dinheiro","var(--dinheiro)"]];
+  fetch("dados/ultimo.json",{cache:"no-store"}).then(function(r){
+    if(!r.ok) throw new Error("sem boletim"); return r.json(); }).then(function(D){
+    var d=D.data.split("-");
+    document.getElementById("hdata").textContent=d[2]+"/"+d[1]+"/"+d[0];
+    document.getElementById("hed").textContent=D.total_sinalizado+" de "+D.total_no_diario+" atos";
+    var p=[["Matérias no dia",D.total_no_diario]];
+    ["Seção I","Seção II","Seção III"].forEach(function(s){p.push([s,D.por_secao[s]||0]);});
+    document.getElementById("pulso").innerHTML=p.map(function(x){
+      return '<div><b>'+x[1]+'</b><small>'+esc(x[0])+'</small></div>';}).join("");
+    var html="";
+    GRUPOS.forEach(function(g){
+      var l=D.atos.filter(function(a){return a.grupos.indexOf(g[0])>=0;});
+      if(!l.length) return;
+      html+='<h2><i style="background:'+g[2]+'"></i>'+esc(g[1])+'<em>'+l.length+' atos</em></h2>';
+      html+=l.map(function(a){
+        var cps=[];
+        if(a.valor) cps.push('<span class="vl">R$ '+esc(a.valor)+'</span>');
+        if(a.cnpj) cps.push('CNPJ <b>'+esc(a.cnpj)+'</b>');
+        if(a.sei) cps.push('SEI <b>'+esc(a.sei)+'</b>');
+        var tags=a.sinais.map(function(s){
+          return '<span class="tag">'+esc(D.rotulos[s]||s)+'</span>';}).join("");
+        return '<div class="ato" style="--c:'+g[2]+'">'+
+          '<a class="t" href="'+esc(a.link)+'" target="_blank" rel="noopener">'+esc(a.titulo)+'</a>'+
+          '<div class="o">'+tags+esc(a.orgao)+' &middot; '+esc(a.secao)+'</div>'+
+          (cps.length?'<div class="cps">'+cps.join("")+'</div>':"")+'</div>';}).join("");
+    });
+    document.getElementById("app").innerHTML=html;
+  }).catch(function(e){
+    document.getElementById("hdata").textContent="";
+    document.getElementById("app").innerHTML=
+      '<div class="erro"><b>Ainda não há boletim publicado.</b><br>'+
+      'A coleta roda às 10h e às 19h em dias úteis. Se passou do horário e nada apareceu, '+
+      'o DODF pode não ter publicado edição hoje.</div>';
+  });
+})();
+</script>
+</body>
+</html>

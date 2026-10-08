@@ -1,0 +1,42 @@
+name: Coleta do DODF
+
+# Brasília é UTC-3 o ano todo (o horário de verão acabou em 2019),
+# então 13:00 UTC = 10h e 22:00 UTC = 19h.
+#   10h — a edição íntegra, a tempo da primeira reunião
+#   19h — a edição extra, que saiu em 8 de cada 10 dias medidos
+on:
+  schedule:
+    - cron: "0 13 * * 1-5"
+    - cron: "0 22 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "Data a coletar (AAAA-MM-DD). Vazio = hoje."
+        required: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Coletar a edição
+        run: python -m radar.coleta ${{ github.event.inputs.data }}
+
+      - name: Commitar o boletim
+        run: |
+          git config user.name  "radar-dodf"
+          git config user.email "radar-dodf@users.noreply.github.com"
+          git add dados/
+          if git diff --staged --quiet; then
+            echo "Nada mudou — nenhuma edição nova."
+          else
+            git commit -m "Boletim de $(date -u -d '-3 hours' +%d/%m/%Y)"
+            git push
+          fi
