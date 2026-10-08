@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calibragem do Radar DODF</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Página de decisão: o gabinete liga e desliga sinais e vê, ao vivo, quanto cada escolha custa de atenção por dia. */
+:root{
+  --azul:#0071bb; --azul2:#0098d9; --pale:#63c6e9;
+  --risco:#C41E3A; --dinheiro:#f4a100; --governo:#512178;
+  --bg:#f3f6f9; --sup:#ffffff; --fg:#10222f; --fg2:#4a6577; --linha:#d8e3ec; --off:#9db3c2;
+  --disp:"Unbounded",system-ui,sans-serif; --txt:"IBM Plex Sans",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --azul:#2fb4e9; --azul2:#63c6e9; --pale:#0098d9;
+  --risco:#ff6b82; --dinheiro:#fabb11; --governo:#a98fc4;
+  --bg:#0b1620; --sup:#132430; --fg:#e8f1f7; --fg2:#92aec1; --linha:#233b4d; --off:#5a7a90;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --azul:#2fb4e9; --azul2:#63c6e9; --pale:#0098d9;
+  --risco:#ff6b82; --dinheiro:#fabb11; --governo:#a98fc4;
+  --bg:#0b1620; --sup:#132430; --fg:#e8f1f7; --fg2:#92aec1; --linha:#233b4d; --off:#5a7a90;
+  color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--txt);margin:0;line-height:1.45;
+  font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+.wrap{max-width:54rem;margin:0 auto;padding-inline:16px;padding-block:1.5rem 3rem}
+h1{font-family:var(--disp);font-weight:800;font-size:1.5rem;letter-spacing:-.02em;margin:0 0 .3rem;text-wrap:balance}
+.lede{color:var(--fg2);font-size:.92rem;max-width:40rem;margin:0 0 1.5rem}
+.hero{margin:.5rem 0 2.2rem}
+.hero .papel{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--azul);font-weight:600;margin-bottom:.7rem}
+.hero h1{font-size:2.05rem;line-height:1.08;margin:0 0 .9rem;max-width:21ch}
+.hero p{font-size:1rem;color:var(--fg2);max-width:46ch;margin:0 0 .5rem}
+.hero p b{color:var(--fg)}
+.mosaico{margin:1.8rem 0 .8rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(13px,1fr));
+  gap:3px;max-width:30rem}
+.mosaico i{display:block;aspect-ratio:1;border-radius:1px;background:var(--linha)}
+.mosaico i.r{background:var(--risco)} .mosaico i.d{background:var(--dinheiro)}
+.mosaico i.g{background:var(--governo)} .mosaico i.s{background:var(--azul)}
+.leg{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:.72rem;color:var(--fg2);margin-bottom:1.6rem}
+.leg span{display:flex;align-items:center;gap:.3rem}
+.leg b{width:.6rem;height:.6rem;border-radius:1px;display:inline-block}
+.provas{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin-bottom:1.6rem}
+.prova{background:var(--sup);border:1px solid var(--linha);border-top:3px solid var(--c);border-radius:3px;padding:.85rem .9rem;min-width:0}
+.prova .cifra{font-family:var(--disp);font-weight:800;font-size:1.5rem;line-height:1;color:var(--c);letter-spacing:-.02em}
+.prova .cab{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--fg2);margin-bottom:.35rem}
+.prova p{font-size:.8rem;color:var(--fg2);margin:.45rem 0 0}
+.prova p b{color:var(--fg)}
+.ressalva{border-left:3px solid var(--azul);padding:.7rem .9rem;background:var(--sup);border-radius:0 3px 3px 0;
+  font-size:.86rem;margin-bottom:2.2rem;max-width:44rem}
+.ressalva b{color:var(--fg)}
+h2.decide{font-family:var(--disp);font-weight:800;font-size:1.25rem;margin:0 0 .3rem;letter-spacing:-.01em}
+.placar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--azul);color:#fff;
+  border-radius:4px;padding:.85rem 1rem;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center}
+.placar .big{font-family:var(--disp);font-weight:800;font-size:1.9rem;line-height:1}
+.placar .lab{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;opacity:.9;display:block}
+.placar .seta{opacity:.6;font-size:1.3rem}
+.placar .frac{font-size:.8rem;opacity:.93;flex:1 1 10rem;min-width:0}
+h2{font-family:var(--disp);font-weight:600;font-size:.95rem;margin:1.8rem 0 .2rem;display:flex;gap:.55rem;align-items:baseline}
+h2 i{width:.7rem;height:.7rem;border-radius:2px;flex:none;font-style:normal}
+h2 em{font-style:normal;font-family:var(--txt);font-weight:600;font-size:.72rem;color:var(--fg2);
+  text-transform:uppercase;letter-spacing:.07em;margin-left:auto}
+.gsub{color:var(--fg2);font-size:.8rem;margin:0 0 .6rem}
+.card{background:var(--sup);border:1px solid var(--linha);border-left:4px solid var(--c);
+  border-radius:3px;margin-bottom:.45rem}
+.card.off{border-left-color:var(--off);opacity:.55}
+.linha1{display:flex;gap:.7rem;align-items:flex-start;padding:.65rem .8rem}
+.linha1 input{margin:.25rem 0 0;width:1.05rem;height:1.05rem;accent-color:var(--azul);flex:none;cursor:pointer}
+.nm{font-weight:600;font-size:.89rem;cursor:pointer;display:block}
+.pq{color:var(--fg2);font-size:.77rem;display:block;margin-top:.05rem}
+.num{margin-left:auto;text-align:right;flex:none}
+.num b{font-family:var(--disp);font-weight:600;font-size:1.15rem;color:var(--c);display:block;line-height:1.1}
+.num small{font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+.meta{display:flex;flex-wrap:wrap;gap:.3rem .9rem;padding:0 .8rem .6rem 2.55rem;font-size:.74rem;color:var(--fg2)}
+.meta b{color:var(--fg);font-weight:600}
+details.ex{border-top:1px solid var(--linha);margin:0 .8rem}
+details.ex summary{cursor:pointer;list-style:none;font-size:.73rem;color:var(--azul);padding:.45rem 0}
+details.ex summary::-webkit-details-marker{display:none}
+details.ex summary:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+.exi{display:block;padding:.4rem 0;border-top:1px solid var(--linha);text-decoration:none;color:inherit;font-size:.78rem}
+.exi span{display:block;color:var(--fg2);font-size:.72rem}
+.exi:hover,.exi:focus-visible{color:var(--azul);outline:none}
+.nota{margin:0 .8rem .6rem 2.55rem;padding:.45rem .6rem;border-left:3px solid var(--azul2);
+  background:color-mix(in srgb,var(--azul) 7%,transparent);border-radius:0 3px 3px 0;
+  font-size:.75rem;color:var(--fg2)}
+.nota b{color:var(--fg)}
+.tabwrap{overflow-x:auto;border:1px solid var(--linha);border-radius:3px;background:var(--sup);margin-bottom:.4rem}
+table.org{width:100%;border-collapse:collapse;font-size:.79rem;min-width:30rem}
+table.org th,table.org td{padding:.4rem .55rem;border-bottom:1px solid var(--linha);text-align:right;white-space:nowrap}
+table.org th:nth-child(2),table.org td:nth-child(2){text-align:left;white-space:normal;min-width:11rem}
+table.org th:last-child,table.org td:last-child{text-align:left;white-space:normal;color:var(--fg2);font-size:.73rem}
+table.org th{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg2);font-weight:600;
+  position:sticky;top:0;background:var(--sup)}
+table.org tr:last-child td{border-bottom:0}
+table.org td.pc{font-weight:600}
+.barra{display:inline-block;height:.45rem;border-radius:2px;background:var(--azul2);vertical-align:middle;margin-left:.3rem}
+tr.alto td.pc{color:var(--risco)}
+table.org td.ck,table.org th.ck{width:1.9rem;min-width:1.9rem;text-align:center;padding:.4rem .15rem .4rem .5rem}
+table.org input{width:1rem;height:1rem;accent-color:var(--azul);cursor:pointer;margin:0}
+table.org tr.desl td:not(.ck){opacity:.4}
+.obtn{display:flex;gap:.4rem;flex-wrap:wrap;margin:.1rem 0 .5rem}
+.descartado{background:var(--sup);border:1px dashed var(--linha);border-radius:3px;padding:.7rem .8rem;margin-bottom:.45rem}
+.descartado b{font-size:.86rem}
+.descartado p{margin:.2rem 0 0;font-size:.77rem;color:var(--fg2)}
+.metodo{border-top:2px solid var(--linha);padding-top:1rem;margin-top:2.5rem;font-size:.78rem;color:var(--fg2)}
+.th3{font-family:var(--disp);font-weight:600;font-size:.8rem;margin:1rem 0 .3rem}
+.metodo h3{font-family:var(--disp);font-weight:600;font-size:.78rem;color:var(--fg);margin:0 0 .5rem;
+  text-transform:uppercase;letter-spacing:.06em}
+.metodo li{margin-bottom:.35rem}
+.acoes{display:flex;gap:.5rem;flex-wrap:wrap;margin:.3rem 0 0}
+button{font:inherit;font-size:.76rem;padding:.35rem .7rem;border-radius:3px;cursor:pointer;
+  border:1px solid var(--linha);background:var(--sup);color:var(--fg)}
+button:hover{border-color:var(--azul);color:var(--azul)}
+button:focus-visible{outline:2px solid var(--azul);outline-offset:1px}
+</style>
+</head>
+<body style="margin:0">
+
+<div class="wrap">
+<section class="hero">
+<div class="papel">Diário Oficial do Distrito Federal &middot; medição de 10 dias úteis</div>
+<h1>O gabinete defende tudo que o Governo aprova.</h1>
+<p>Ontem o Governo publicou <b>361 atos</b>. Cada quadradinho abaixo é um deles.</p>
+<div class="mosaico"><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i><i class="r"></i><i class="g"></i><i class="r"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="d"></i><i class="d"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i></i><i class="r"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i class="d"></i><i class="d"></i><i></i><i></i><i class="d"></i><i class="d"></i><i class="d"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="d"></i><i></i><i></i><i class="d"></i><i class="d"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i class="s"></i><i class="s"></i><i class="s"></i><i class="s"></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i class="s"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i></i><i class="s"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i></i><i class="s"></i><i class="s"></i><i class="s"></i><i class="s"></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i></i></div>
+<div class="leg">
+ <span><b style="background:var(--risco)"></b>36 de risco</span>
+ <span><b style="background:var(--dinheiro)"></b>20 de dinheiro</span>
+ <span><b style="background:var(--governo)"></b>14 da Governadora</span>
+ <span><b style="background:var(--azul)"></b>18 da SEGOV e Regionais</span>
+ <span><b style="background:var(--linha)"></b>273 de rotina</span>
+</div>
+<p style="margin-bottom:1.4rem"><b>88 pediam atenção. 273 eram rotina.</b> Ninguém tem tempo de separar
+os dois à mão, todo dia, antes da primeira reunião. É isso que o radar faz.</p>
+<div class="provas">
+ <div class="prova" style="--c:var(--risco)">
+  <div class="cab">Reconhecimento de dívida</div>
+  <div class="cifra">R$ 10,6 mi</div>
+  <p>em <b>10 dias</b>, de serviço já prestado sem cobertura contratual.
+  <b>9 atos, R$ 6,0 milhões</b>, vieram de uma única associação médica.</p>
+ </div>
+ <div class="prova" style="--c:var(--dinheiro)">
+  <div class="cab">Crédito suplementar</div>
+  <div class="cifra">R$ 84,9 mi</div>
+  <p>remanejados em <b>dois dias</b>, de R$ 45,2 milhões para a Educação a R$ 715 para a Candangolândia.
+  <b>14 dos 17</b> não apareciam na busca comum do DODF.</p>
+ </div>
+ <div class="prova" style="--c:var(--azul)">
+  <div class="cab">Administrações Regionais</div>
+  <div class="cifra">14 de 37</div>
+  <p>publicaram ontem. Elas respondem à SEGOV pela Secretaria Executiva das Cidades
+  e <b>não passam pelo gabinete</b> antes de publicar.</p>
+ </div>
+</div>
+<div class="ressalva">Nada disso é irregular. São atos públicos, legais e assinados — e boa parte é
+rotina necessária. <b>A questão não é se podiam ser publicados. É se o gabinete soube no mesmo dia.</b></div>
+</section>
+<h2 class="decide">O que o radar vai observar</h2>
+<p class="lede">O DODF publica <b>386 atos por dia</b>. O placar abaixo mostra, ao vivo, quantos atos por dia
+cada combinação de sinais e órgãos custaria de leitura.</p>
+<div class="placar">
+ <div><span class="lab">Chegam por dia</span><span class="big">386</span></div>
+ <div class="seta">&rarr;</div>
+ <div><span class="lab">O gabinete veria</span><span class="big" id="sel">—</span></div>
+ <div class="frac" id="frac"></div>
+ <div class="acoes"><button id="btodos">Marcar todos</button><button id="bnenhum">Limpar</button></div>
+</div>
+<main id="app"></main>
+<h2 style="margin-top:2.2rem"><i style="background:var(--azul)"></i>Quem publica — e quem gera sinal<em>segundo eixo da decisão</em></h2>
+<p class="gsub">Volume e risco não andam juntos. A coluna <b>% sinal</b> diz quanto do que o órgão publica vira alerta:
+é ela, e não o total, que indica onde vale olhar. Em vermelho, quem passa de 30%.</p>
+<h3 class="th3">Secretarias</h3>
+<div class="obtn"><button id="bosec">Só as secretarias</button><button id="botodos">Todos os órgãos</button><button id="bolimpa">Limpar órgãos</button></div>
+<div class="tabwrap"><table class="org" id="tsec"></table></div>
+<h3 class="th3">Estatais, autarquias e fundações</h3>
+<p class="gsub">Contadas por árvore: o BRB, por exemplo, publica pelas gerências, não pela raiz.</p>
+<div class="tabwrap"><table class="org" id="test"></table></div>
+<div class="metodo">
+<h3>O que foi testado e descartado</h3>
+<div id="desc"></div>
+<h3 style="margin-top:1.2rem">Como estes números foram apurados</h3>
+<ul>
+<li>Varredura completa de <b>10 dias úteis</b> (25/09 a 08/10/2026), as três seções, todas as páginas. O servidor confirmou cada data.</li>
+<li>O gatilho é buscado <b>no título do ato</b>, não no corpo. Buscar no corpo inflava os números em 22% a 100%: todo contrato cita &ldquo;dotação orçamentária&rdquo; e toda rescisão aparece como cláusula em aditivos que não são rescisões.</li>
+<li>Os valores em R$ saem do trecho visível da listagem, que vem truncado em ~500 caracteres. Por isso nem todo ato tem valor apurado — a coluna diz quantos têm.</li>
+<li><b>O TCDF não está aqui.</b> O Tribunal não publica no DODF como órgão demandante.</li>
+<li><b>Correção de 08/10:</b> o crédito suplementar aparecia aqui como 0,6 ato/dia. Estava errado.
+Ao abrir o inteiro teor dos 60 decretos do período, são <b>17 em 10 dias</b> — 1,7 por dia. O preâmbulo do
+decreto consome os ~500 caracteres do trecho antes de chegar ao &ldquo;fica aberto crédito suplementar&rdquo;,
+de modo que 14 dos 17 eram invisíveis na listagem. O número acima já é o corrigido.</li>
+<li><b>Atos de pessoal estão subcontados.</b> Nomeações e exonerações raramente usam esses verbos no trecho visível.</li>
+</ul>
+</div>
+</div>
+<script id="matriz" type="application/json">
+{"dias":10,"sinais":["Reconhecimento de dívida","Penalidade a fornecedor","Contratação direta","Rescisão contratual","Errata / retificação","Crédito suplementar (decreto)","Termo aditivo / reequilíbrio","Convênio / termo de colaboração","Decreto do Poder Executivo","SEGOV e as 37 Regionais"],"entidades":["SESDF — Saúde","SECEC — Cultura e Economia Criativa","SSPDF — Segurança Pública","SEEC — Economia","SODF — Obras e Infraestrutura","SEEDF — Educação","SEGOV — Governo","SEJUS — Justiça e Cidadania","SEMA — Meio Ambiente","SEDET — Desenvolvimento Econômico, Trabalho e Renda","CGDF — Controladoria-Geral","SEAPE — Administração Penitenciária","SEAGRI — Agricultura, Abastecimento e Desenvolvimento Rural","SEMOB — Transporte e Mobilidade","Poder Executivo — Poder Executivo","SEDES — Desenvolvimento Social","SECTI — Ciência, Tecnologia e Inovação","SEDUH — Desenvolvimento Urbano e Habitação","CACI — Casa Civil","SELDF — Esporte e Lazer","DF LEGAL — Proteção da Ordem Urbanística - DF LEGAL","DPDF — Defensoria Pública","IGES/DF","Companhia Urbanizadora da Nova Capital do Brasil","TERRACAP","Agência de Desenvolvimento","DETRAN","BRB","Companhia de Saneamento Ambiental","INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES","INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL","Instituto de Previdência dos Servidores","Fundação Hemocentro de Brasília","Agência Reguladora de águas, Energia e Saneamento Básico","CAESB","Companhia do Metropolitano","CODHAB","DER","Fundação de Apoio à Pesquisa","NOVACAP","Instituto de Pesquisa e Estatística","Outros órgãos (fora da lista)"],"nSec":22,"recs":[[[8],[14]],[[8],[14]],[[4,8],[14]],[[6],[41]],[[2],[7]],[[9],[6]],[[7],[3,27]],[[9],[6]],[[9],[6]],[[1],[4]],[[2],[0]],[[2],[0]],[[2],[1]],[[3],[12]],[[6],[12]],[[6],[41]],[[6],[7]],[[6],[8]],[[6],[7]],[[6],[41]],[[6],[41]],[[6],[41]],[[9],[6]],[[6],[16]],[[7],[41]],[[7],[41]],[[7],[41]],[[7],[41]],[[6],[9]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[6],[2]],[[6],[2]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[9],[6]],[[4],[0]],[[4],[2]],[[4],[0,32]],[[4],[0,32]],[[4],[0]],[[6],[2]],[[6],[1]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[4,8],[14]],[[1],[2]],[[2],[7]],[[2],[2]],[[2],[2]],[[2],[19]],[[9],[6]],[[2],[2]],[[9],[6]],[[2],[19]],[[2],[1]],[[6],[4,28]],[[6],[4,28]],[[6],[0]],[[3],[12]],[[6,7],[5]],[[6],[3,31]],[[6],[2]],[[6],[0,22]],[[6],[0,22]],[[6],[0,22]],[[6],[16]],[[6],[0,22]],[[6],[0,22]],[[6],[0,22]],[[6],[0,22]],[[6],[2]],[[9],[6]],[[9],[6]],[[7],[8]],[[7],[41]],[[3],[0,30]],[[3],[0,22]],[[3],[0,30]],[[3],[0,30]],[[3],[0,30]],[[6],[3,27]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[6],[2]],[[6],[2]],[[2],[17]],[[2],[17]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[9],[6]],[[4],[0]],[[4],[0]],[[4],[0]],[[4],[7]],[[4],[41]],[[7],[1]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[4,8],[14]],[[2],[0]],[[9],[6]],[[4],[7]],[[7],[0]],[[6],[2]],[[6],[2,26]],[[6],[2]],[[6],[16]],[[6],[11]],[[3],[2,26]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[6],[2]],[[6],[2]],[[0],[12]],[[4],[5]],[[4],[9]],[[4],[13]],[[4],[15]],[[4],[15]],[[4],[15]],[[4],[10]],[[4],[10]],[[2,6],[3,40]],[[2,6],[3,40]],[[9],[6]],[[8],[14]],[[0],[2]],[[9],[6]],[[2],[4,39]],[[9],[6]],[[1],[4,37]],[[3],[3,27]],[[6],[12]],[[7],[16]],[[6],[2,26]],[[6],[2,26]],[[6],[3]],[[6],[2]],[[6],[10]],[[6],[3,31]],[[6,9],[6]],[[6,9],[6]],[[6],[15]],[[6],[8]],[[6,9],[6]],[[6,9],[6]],[[6],[0,32]],[[7],[7]],[[6],[3,27]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[2,9],[6]],[[0],[2]],[[0],[2]],[[0],[2]],[[0],[2]],[[0],[2]],[[0],[2]],[[0],[2]],[[0],[2]],[[0],[4]],[[0],[4]],[[9],[6]],[[4],[5]],[[4],[5]],[[4],[0]],[[4],[12]],[[4],[12]],[[4],[20]],[[4],[3,29]],[[9],[6]],[[4,8],[14]],[[8],[14]],[[4,8],[14]],[[6],[41]],[[6],[17]],[[9],[6]],[[2],[41]],[[2,9],[6]],[[9],[6]],[[9],[6]],[[4],[0,22]],[[6,9],[6]],[[4],[7]],[[6],[3]],[[6],[12]],[[6],[3]],[[6],[3]],[[6],[4]],[[9],[6]],[[6],[2]],[[6],[2]],[[6],[2]],[[6],[17,36]],[[6],[7]],[[6],[2]],[[9],[6]],[[7],[7]],[[3],[12]],[[2],[0]],[[6],[16,38]],[[6],[3,27]],[[6],[3,27]],[[6],[3,27]],[[6],[3,27]],[[1],[0]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[6],[2]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[0]],[[9],[6]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[1],[2,26]],[[6],[2]],[[2],[17]],[[2],[17]],[[2],[17]],[[2],[17]],[[2],[17]],[[6],[4]],[[3],[3,27]],[[7],[7]],[[2],[0]],[[7],[15]],[[6],[2]],[[6],[2]],[[6,9],[6]],[[6],[2]],[[6],[2]],[[6],[16]],[[9],[6]],[[7],[41]],[[7],[41]],[[7],[41]],[[7],[41]],[[3],[7]],[[3],[2]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[6],[2]],[[6],[2]],[[0],[20]],[[0],[9]],[[4,9],[6]],[[4],[0]],[[4],[13]],[[6],[2]],[[6],[2]],[[6,7],[16]],[[6],[2]],[[3],[2]],[[6],[3,27]],[[6],[3,27]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[8],[14]],[[4,8],[14]],[[6],[17]],[[2],[2]],[[2],[4]],[[9],[6]],[[4],[41]],[[6],[4]],[[2],[4,28]],[[6],[4]],[[6],[8]],[[6],[0,30]],[[6],[0,22]],[[6],[0,22]],[[6],[0,22]],[[6],[0,22]],[[6],[0,22]],[[6],[0,22]],[[6],[0,30]],[[6],[0,22]],[[6],[0,22]],[[6],[9]],[[6],[0,22]],[[6],[0,30]],[[6],[0,30]],[[6],[0,22]],[[6],[0,32]],[[6],[0,22]],[[7],[9]],[[3],[0,22]],[[7],[16]],[[7],[16]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[4],[3]],[[4],[0]],[[4],[0]],[[4],[0]],[[4],[0]],[[4],[19]],[[4],[8]],[[4],[20]],[[8],[14]],[[8],[14]],[[8],[14]],[[4,8],[14]],[[1],[2]],[[6],[2]],[[2],[0]],[[9],[6]],[[9],[6]],[[2],[0]],[[2],[0]],[[6],[3]],[[6],[5]],[[6],[2]],[[6],[19]],[[9],[6]],[[6],[0,32]],[[6],[12]],[[6,9],[6]],[[6],[13]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[2,9],[6]],[[4],[5]],[[4],[0]],[[4],[0]],[[4],[0]],[[4],[0]],[[4],[15]],[[7],[1]],[[7],[1]],[[7],[1]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[1],[1]],[[1],[1]],[[1],[1]],[[2],[41]],[[2],[4,39]],[[9],[6]],[[4],[4]],[[4],[0,22]],[[4],[16]],[[6],[13,35]],[[6],[13,35]],[[6],[4,28]],[[6],[4,28]],[[6],[13,35]],[[6],[8]],[[6],[15]],[[6],[15]],[[6],[7]],[[7],[41]],[[7],[21]],[[6],[11]],[[6],[11]],[[6,9],[6]],[[7],[15]],[[9],[6]],[[7],[9]],[[3],[7]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[4],[3]],[[4],[0]],[[4],[0]],[[4],[2]],[[4],[12]],[[4],[2]],[[4],[13]],[[4],[2,26]],[[6],[2]],[[8],[14]],[[8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[5,8],[14]],[[4,8],[14]],[[8],[14]],[[4,8],[14]],[[6],[41]],[[6],[41]],[[1],[2]],[[1],[2]],[[1],[11]],[[2],[10]],[[2],[41]],[[3],[3,27]],[[2],[0]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[2],[1]],[[0],[4,23]],[[4],[16]],[[6],[4,28]],[[6],[4,28]],[[6],[4,28]],[[6],[5]],[[6],[41]],[[6,7],[5]],[[6],[4]],[[6],[4]],[[6],[4]],[[6],[4]],[[9],[6]],[[7],[12]],[[6],[2]],[[6],[2]],[[6],[2]],[[6],[4]],[[6,9],[6]],[[6],[3,27]],[[6],[3,27]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[2],[8,33]],[[2],[8,33]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[0],[3,29]],[[9],[6]],[[9],[6]],[[9],[6]],[[9],[6]],[[4],[5]],[[4],[0]],[[4],[0]],[[4],[7]],[[4],[21]],[[4],[41]],[[4],[5]],[[4],[5]],[[4],[5]],[[0],[4,28]]]}
+</script>
+<script id="orgaos" type="application/json">
+{
+ "secretarias": [
+  {
+   "nome": "SESDF — Saúde",
+   "total": 850,
+   "dia": 85,
+   "sinaisDia": 6.7,
+   "pct": 8,
+   "secoes": {
+    "I": 24,
+    "II": 305,
+    "III": 521
+   },
+   "det": [
+    "aditivo 26",
+    "errata 23",
+    "sem licitação 9"
+   ]
+  },
+  {
+   "nome": "SECEC — Cultura e Economia Criativa",
+   "total": 514,
+   "dia": 51.4,
+   "sinaisDia": 2.4,
+   "pct": 5,
+   "secoes": {
+    "I": 0,
+    "II": 19,
+    "III": 495
+   },
+   "det": [
+    "sem licitação 16",
+    "convênio 4",
+    "penalidade 3"
+   ]
+  },
+  {
+   "nome": "SSPDF — Segurança Pública",
+   "total": 423,
+   "dia": 42.3,
+   "sinaisDia": 6.1,
+   "pct": 14,
+   "secoes": {
+    "I": 75,
+    "II": 160,
+    "III": 188
+   },
+   "det": [
+    "aditivo 36",
+    "dívida 9",
+    "penalidade 5"
+   ]
+  },
+  {
+   "nome": "SEEC — Economia",
+   "total": 351,
+   "dia": 35.1,
+   "sinaisDia": 4.9,
+   "pct": 14,
+   "secoes": {
+    "I": 128,
+    "II": 114,
+    "III": 109
+   },
+   "det": [
+    "dívida 21",
+    "aditivo 19",
+    "rescisão 3"
+   ]
+  },
+  {
+   "nome": "SODF — Obras e Infraestrutura",
+   "total": 174,
+   "dia": 17.4,
+   "sinaisDia": 2.7,
+   "pct": 16,
+   "secoes": {
+    "I": 9,
+    "II": 19,
+    "III": 146
+   },
+   "det": [
+    "aditivo 16",
+    "sem licitação 4",
+    "dívida 4"
+   ]
+  },
+  {
+   "nome": "SEEDF — Educação",
+   "total": 174,
+   "dia": 17.4,
+   "sinaisDia": 1.4,
+   "pct": 8,
+   "secoes": {
+    "I": 71,
+    "II": 85,
+    "III": 18
+   },
+   "det": [
+    "errata 8",
+    "aditivo 4",
+    "convênio 2"
+   ]
+  },
+  {
+   "nome": "SEGOV — Governo",
+   "total": 166,
+   "dia": 16.6,
+   "sinaisDia": 1.3,
+   "pct": 8,
+   "secoes": {
+    "I": 30,
+    "II": 93,
+    "III": 43
+   },
+   "det": [
+    "aditivo 9",
+    "sem licitação 3",
+    "errata 1"
+   ]
+  },
+  {
+   "nome": "SEJUS — Justiça e Cidadania",
+   "total": 129,
+   "dia": 12.9,
+   "sinaisDia": 1.5,
+   "pct": 12,
+   "secoes": {
+    "I": 19,
+    "II": 87,
+    "III": 23
+   },
+   "det": [
+    "aditivo 4",
+    "errata 4",
+    "convênio 3"
+   ]
+  },
+  {
+   "nome": "SEMA — Meio Ambiente",
+   "total": 126,
+   "dia": 12.6,
+   "sinaisDia": 0.8,
+   "pct": 6,
+   "secoes": {
+    "I": 29,
+    "II": 42,
+    "III": 55
+   },
+   "det": [
+    "aditivo 4",
+    "sem licitação 2",
+    "convênio 1"
+   ]
+  },
+  {
+   "nome": "SEDET — Desenvolvimento Econômico, Trabalho e Renda",
+   "total": 98,
+   "dia": 9.8,
+   "sinaisDia": 0.6,
+   "pct": 6,
+   "secoes": {
+    "I": 5,
+    "II": 30,
+    "III": 63
+   },
+   "det": [
+    "aditivo 2",
+    "convênio 2",
+    "errata 1"
+   ]
+  },
+  {
+   "nome": "CGDF — Controladoria-Geral",
+   "total": 92,
+   "dia": 9.2,
+   "sinaisDia": 0.4,
+   "pct": 4,
+   "secoes": {
+    "I": 56,
+    "II": 30,
+    "III": 6
+   },
+   "det": [
+    "errata 2",
+    "aditivo 1",
+    "sem licitação 1"
+   ]
+  },
+  {
+   "nome": "SEAPE — Administração Penitenciária",
+   "total": 88,
+   "dia": 8.8,
+   "sinaisDia": 0.4,
+   "pct": 5,
+   "secoes": {
+    "I": 23,
+    "II": 44,
+    "III": 21
+   },
+   "det": [
+    "aditivo 3",
+    "penalidade 1"
+   ]
+  },
+  {
+   "nome": "SEAGRI — Agricultura, Abastecimento e Desenvolvimento Rural",
+   "total": 65,
+   "dia": 6.5,
+   "sinaisDia": 1.2,
+   "pct": 18,
+   "secoes": {
+    "I": 8,
+    "II": 36,
+    "III": 21
+   },
+   "det": [
+    "aditivo 4",
+    "rescisão 3",
+    "errata 3"
+   ]
+  },
+  {
+   "nome": "SEMOB — Transporte e Mobilidade",
+   "total": 63,
+   "dia": 6.3,
+   "sinaisDia": 0.7,
+   "pct": 11,
+   "secoes": {
+    "I": 9,
+    "II": 32,
+    "III": 22
+   },
+   "det": [
+    "aditivo 4",
+    "errata 3"
+   ]
+  },
+  {
+   "nome": "Poder Executivo — Poder Executivo",
+   "total": 61,
+   "dia": 6.1,
+   "sinaisDia": 0.9,
+   "pct": 15,
+   "secoes": {
+    "I": 45,
+    "II": 16,
+    "III": 0
+   },
+   "det": [
+    "errata 9"
+   ]
+  },
+  {
+   "nome": "SEDES — Desenvolvimento Social",
+   "total": 58,
+   "dia": 5.8,
+   "sinaisDia": 0.9,
+   "pct": 16,
+   "secoes": {
+    "I": 14,
+    "II": 36,
+    "III": 8
+   },
+   "det": [
+    "errata 4",
+    "aditivo 3",
+    "convênio 2"
+   ]
+  },
+  {
+   "nome": "SECTI — Ciência, Tecnologia e Inovação",
+   "total": 55,
+   "dia": 5.5,
+   "sinaisDia": 1.2,
+   "pct": 22,
+   "secoes": {
+    "I": 3,
+    "II": 16,
+    "III": 36
+   },
+   "det": [
+    "aditivo 6",
+    "convênio 4",
+    "errata 2"
+   ]
+  },
+  {
+   "nome": "SEDUH — Desenvolvimento Urbano e Habitação",
+   "total": 50,
+   "dia": 5,
+   "sinaisDia": 1,
+   "pct": 20,
+   "secoes": {
+    "I": 8,
+    "II": 8,
+    "III": 34
+   },
+   "det": [
+    "sem licitação 7",
+    "aditivo 3"
+   ]
+  },
+  {
+   "nome": "CACI — Casa Civil",
+   "total": 29,
+   "dia": 2.9,
+   "sinaisDia": 0,
+   "pct": 0,
+   "secoes": {
+    "I": 0,
+    "II": 17,
+    "III": 12
+   },
+   "det": []
+  },
+  {
+   "nome": "SELDF — Esporte e Lazer",
+   "total": 26,
+   "dia": 2.6,
+   "sinaisDia": 0.4,
+   "pct": 15,
+   "secoes": {
+    "I": 5,
+    "II": 13,
+    "III": 8
+   },
+   "det": [
+    "sem licitação 2",
+    "errata 1",
+    "aditivo 1"
+   ]
+  },
+  {
+   "nome": "DF LEGAL — Proteção da Ordem Urbanística - DF LEGAL",
+   "total": 26,
+   "dia": 2.6,
+   "sinaisDia": 0.3,
+   "pct": 12,
+   "secoes": {
+    "I": 9,
+    "II": 8,
+    "III": 9
+   },
+   "det": [
+    "errata 2",
+    "dívida 1"
+   ]
+  },
+  {
+   "nome": "DPDF — Defensoria Pública",
+   "total": 26,
+   "dia": 2.6,
+   "sinaisDia": 0.2,
+   "pct": 8,
+   "secoes": {
+    "I": 4,
+    "II": 16,
+    "III": 6
+   },
+   "det": [
+    "convênio 1",
+    "errata 1"
+   ]
+  }
+ ],
+ "estatais": [
+  {
+   "nome": "IGES/DF",
+   "total": 67,
+   "dia": 6.7,
+   "sinaisDia": 2.2,
+   "pct": 33,
+   "secoes": {
+    "I": 0,
+    "II": 0,
+    "III": 67
+   },
+   "det": [
+    "aditivo 18",
+    "rescisão 2",
+    "errata 2"
+   ]
+  },
+  {
+   "nome": "Companhia Urbanizadora da Nova Capital do Brasil",
+   "total": 60,
+   "dia": 6,
+   "sinaisDia": 0.1,
+   "pct": 2,
+   "secoes": {
+    "I": 0,
+    "II": 1,
+    "III": 59
+   },
+   "det": [
+    "dívida 1"
+   ]
+  },
+  {
+   "nome": "TERRACAP",
+   "total": 54,
+   "dia": 5.4,
+   "sinaisDia": 0,
+   "pct": 0,
+   "secoes": {
+    "I": 4,
+    "II": 0,
+    "III": 50
+   },
+   "det": []
+  },
+  {
+   "nome": "Agência de Desenvolvimento",
+   "total": 54,
+   "dia": 5.4,
+   "sinaisDia": 0,
+   "pct": 0,
+   "secoes": {
+    "I": 4,
+    "II": 0,
+    "III": 50
+   },
+   "det": []
+  },
+  {
+   "nome": "DETRAN",
+   "total": 50,
+   "dia": 5,
+   "sinaisDia": 0.6,
+   "pct": 12,
+   "secoes": {
+    "I": 5,
+    "II": 9,
+    "III": 36
+   },
+   "det": [
+    "aditivo 3",
+    "rescisão 1",
+    "penalidade 1"
+   ]
+  },
+  {
+   "nome": "BRB",
+   "total": 31,
+   "dia": 3.1,
+   "sinaisDia": 1.4,
+   "pct": 45,
+   "secoes": {
+    "I": 0,
+    "II": 0,
+    "III": 31
+   },
+   "det": [
+    "aditivo 10",
+    "rescisão 3",
+    "convênio 1"
+   ]
+  },
+  {
+   "nome": "Companhia de Saneamento Ambiental",
+   "total": 29,
+   "dia": 2.9,
+   "sinaisDia": 0.9,
+   "pct": 31,
+   "secoes": {
+    "I": 0,
+    "II": 0,
+    "III": 29
+   },
+   "det": [
+    "aditivo 7",
+    "sem licitação 1",
+    "dívida 1"
+   ]
+  },
+  {
+   "nome": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+   "total": 24,
+   "dia": 2.4,
+   "sinaisDia": 2.2,
+   "pct": 92,
+   "secoes": {
+    "I": 1,
+    "II": 2,
+    "III": 21
+   },
+   "det": [
+    "dívida 21",
+    "errata 1"
+   ]
+  },
+  {
+   "nome": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL",
+   "total": 24,
+   "dia": 2.4,
+   "sinaisDia": 0.8,
+   "pct": 33,
+   "secoes": {
+    "I": 0,
+    "II": 0,
+    "III": 24
+   },
+   "det": [
+    "rescisão 4",
+    "aditivo 4"
+   ]
+  },
+  {
+   "nome": "Instituto de Previdência dos Servidores",
+   "total": 20,
+   "dia": 2,
+   "sinaisDia": 0.2,
+   "pct": 10,
+   "secoes": {
+    "I": 0,
+    "II": 10,
+    "III": 10
+   },
+   "det": [
+    "aditivo 2"
+   ]
+  },
+  {
+   "nome": "Fundação Hemocentro de Brasília",
+   "total": 19,
+   "dia": 1.9,
+   "sinaisDia": 0.5,
+   "pct": 26,
+   "secoes": {
+    "I": 0,
+    "II": 13,
+    "III": 6
+   },
+   "det": [
+    "aditivo 3",
+    "errata 2"
+   ]
+  },
+  {
+   "nome": "Agência Reguladora de águas, Energia e Saneamento Básico",
+   "total": 17,
+   "dia": 1.7,
+   "sinaisDia": 0.2,
+   "pct": 12,
+   "secoes": {
+    "I": 7,
+    "II": 6,
+    "III": 4
+   },
+   "det": [
+    "sem licitação 2"
+   ]
+  },
+  {
+   "nome": "CAESB",
+   "total": 16,
+   "dia": 1.6,
+   "sinaisDia": 0,
+   "pct": 0,
+   "secoes": {
+    "I": 0,
+    "II": 0,
+    "III": 16
+   },
+   "det": []
+  },
+  {
+   "nome": "Companhia do Metropolitano",
+   "total": 14,
+   "dia": 1.4,
+   "sinaisDia": 0.3,
+   "pct": 21,
+   "secoes": {
+    "I": 0,
+    "II": 2,
+    "III": 12
+   },
+   "det": [
+    "aditivo 3"
+   ]
+  },
+  {
+   "nome": "CODHAB",
+   "total": 13,
+   "dia": 1.3,
+   "sinaisDia": 0.1,
+   "pct": 8,
+   "secoes": {
+    "I": 0,
+    "II": 0,
+    "III": 13
+   },
+   "det": [
+    "aditivo 1"
+   ]
+  },
+  {
+   "nome": "DER",
+   "total": 12,
+   "dia": 1.2,
+   "sinaisDia": 0.1,
+   "pct": 8,
+   "secoes": {
+    "I": 4,
+    "II": 1,
+    "III": 7
+   },
+   "det": [
+    "penalidade 1"
+   ]
+  },
+  {
+   "nome": "Fundação de Apoio à Pesquisa",
+   "total": 11,
+   "dia": 1.1,
+   "sinaisDia": 0.1,
+   "pct": 9,
+   "secoes": {
+    "I": 2,
+    "II": 5,
+    "III": 4
+   },
+   "det": [
+    "aditivo 1"
+   ]
+  },
+  {
+   "nome": "NOVACAP",
+   "total": 10,
+   "dia": 1,
+   "sinaisDia": 0.2,
+   "pct": 20,
+   "secoes": {
+    "I": 0,
+    "II": 0,
+    "III": 10
+   },
+   "det": [
+    "sem licitação 2"
+   ]
+  },
+  {
+   "nome": "Instituto de Pesquisa e Estatística",
+   "total": 10,
+   "dia": 1,
+   "sinaisDia": 0.4,
+   "pct": 40,
+   "secoes": {
+    "I": 2,
+    "II": 3,
+    "III": 5
+   },
+   "det": [
+    "sem licitação 2",
+    "aditivo 2"
+   ]
+  }
+ ]
+}
+</script>
+<script id="dados" type="application/json">
+{
+ "dias": 10,
+ "totalMaterias": 3864,
+ "mediaDia": 386.4,
+ "sinais": [
+  {
+   "nome": "Reconhecimento de dívida",
+   "porque": "Serviço prestado sem cobertura contratual",
+   "grupo": "risco",
+   "total": 38,
+   "dia": 3.8,
+   "comValor": 30,
+   "mediana": 24255.05,
+   "p75": 68833.87,
+   "p90": 562050.72,
+   "max": 1570527.85,
+   "picoDia": 11,
+   "ex": [
+    {
+     "t": "RECONHECIMENTO DE DÍVIDA",
+     "o": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+     "s": "Seção III",
+     "v": "R$ 39.844,08",
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631160&p=reconhecimento-de-divida"
+    },
+    {
+     "t": "RECONHECIMENTO DE DÍVIDA",
+     "o": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+     "s": "Seção III",
+     "v": "R$ 2.050,00",
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631161&p=reconhecimento-de-divida"
+    },
+    {
+     "t": "RECONHECIMENTO DE DÍVIDA",
+     "o": "INSTITUTO DE ASSISTÊNCIA À SAÚDE DOS SERVIDORES",
+     "s": "Seção III",
+     "v": "R$ 164,80",
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631162&p=reconhecimento-de-divida"
+    }
+   ]
+  },
+  {
+   "nome": "Penalidade a fornecedor",
+   "porque": "Empresa punida pela administração",
+   "grupo": "risco",
+   "total": 12,
+   "dia": 1.2,
+   "comValor": 0,
+   "mediana": null,
+   "p75": null,
+   "p90": null,
+   "max": null,
+   "picoDia": 3,
+   "ex": [
+    {
+     "t": "EDITAL DE NOTIFICAÇÃO DA PENALIDADE",
+     "o": "Departamento de Estradas de Rodagem",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631140&p=edital-de-notificacao-da-penalidade"
+    },
+    {
+     "t": "APLICAÇÃO DE PENALIDADE",
+     "o": "Diretoria de Contratações e Aquisições",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631350&p=aplicacao-de-penalidade"
+    },
+    {
+     "t": "EDITAL DE NOTIFICAÇÃO DA PENALIDADE",
+     "o": "SUPERINTENDÊNCIA DE TRÂNSITO",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=632161&p=edital-de-notificacao-da-penalidade"
+    }
+   ]
+  },
+  {
+   "nome": "Contratação direta",
+   "porque": "Compra sem licitação",
+   "grupo": "risco",
+   "total": 55,
+   "dia": 5.5,
+   "comValor": 21,
+   "mediana": 2060,
+   "p75": 19050,
+   "p90": 36656.64,
+   "max": 94312.09,
+   "picoDia": 12,
+   "ex": [
+    {
+     "t": "AUTORIZAÇÃO DE DISPENSA DE LICITAÇÃO N° 04/2026",
+     "o": "Fundação de Amparo ao Trabalhador Preso",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631106&p=autorizacao-de-dispensa-de-licitacao-n-042026"
+    },
+    {
+     "t": "EXTRATO DE DISPENSA DE LICITAÇÃO/PDPAS/CRDF/SES",
+     "o": "Complexo Regulador em Saúde",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631075&p=extrato-de-dispensa-de-licitacaopdpascrdfses"
+    },
+    {
+     "t": "EXTRATO DE DISPENSA DE LICITAÇÃO/PDPAS/HAB/SES",
+     "o": "Hospital de Apoio de Brasília",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631058&p=extrato-de-dispensa-de-licitacaopdpashabses"
+    }
+   ]
+  },
+  {
+   "nome": "Rescisão contratual",
+   "porque": "Serviço que vai parar",
+   "grupo": "risco",
+   "total": 17,
+   "dia": 1.7,
+   "comValor": 1,
+   "mediana": 55200,
+   "p75": 55200,
+   "p90": 55200,
+   "max": 55200,
+   "picoDia": 6,
+   "ex": [
+    {
+     "t": "EXTRATO DE TERMO DE RESCISÃO UNILATERAL",
+     "o": "DIRETORIA DE ADMINISTRAÇÃO E FINANÇAS",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631061&p=extrato-de-termo-de-rescisao-unilateral"
+    },
+    {
+     "t": "EXTRATO DE TERMO DE RESCISÃO UNILATERAL",
+     "o": "DIRETORIA DE ADMINISTRAÇÃO E FINANÇAS",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631274&p=extrato-de-termo-de-rescisao-unilateral"
+    },
+    {
+     "t": "EXTRATO DO TERMO DE RESCISÃO AMIGÁVEL AO CONTRATO Nº 057/2025",
+     "o": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631377&p=extrato-do-termo-de-rescisao-amigavel-ao-contrato-n-0572025"
+    }
+   ]
+  },
+  {
+   "nome": "Errata / retificação",
+   "porque": "Ato publicado errado e corrigido em público",
+   "grupo": "risco",
+   "total": 76,
+   "dia": 7.6,
+   "comValor": 0,
+   "mediana": null,
+   "p75": null,
+   "p90": null,
+   "max": null,
+   "picoDia": 12,
+   "ex": [
+    {
+     "t": "RETIFICAÇÃO",
+     "o": "Poder Executivo",
+     "s": "Seção II",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631250&p=retificacao"
+    },
+    {
+     "t": "RETIFICAÇÃO",
+     "o": "Superintendência da Região de Saúde Oeste",
+     "s": "Seção II",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631054&p=retificacao"
+    },
+    {
+     "t": "RETIFICAÇÃO",
+     "o": "Polícia Militar do Distrito Federal",
+     "s": "Seção II",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=630962&p=retificacao"
+    }
+   ]
+  },
+  {
+   "nome": "Crédito suplementar (decreto)",
+   "porque": "A Secretaria de Economia move dotação para outro órgão — o decreto nomeia quem recebe e quanto",
+   "grupo": "dinheiro",
+   "total": 17,
+   "dia": 1.7,
+   "comValor": 17,
+   "mediana": 371282,
+   "p75": 3501616,
+   "p90": 14378029,
+   "max": 45200000,
+   "picoDia": 11,
+   "nota": "Sai em <b>lote</b>, não todo dia: zero entre 25/09 e 06/10, depois 6 no dia 07 e 11 no dia 08 — R$ 84.948.332 em dois dias. <b>14 dos 17</b> não aparecem no trecho da listagem: este sinal exige abrir o inteiro teor dos decretos do Poder Executivo (~6 por dia).",
+   "ex": [
+    {
+     "t": "DECRETO Nº 49.515, DE 7 DE OUTUBRO DE 2026 — Secretaria de Estado de Educação",
+     "o": "Poder Executivo",
+     "s": "Seção I",
+     "v": "R$ 45.200.000",
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634924&p=decreto-n-49515-de-7-de-outubro-de-2026"
+    },
+    {
+     "t": "DECRETO Nº 49.501, DE 06 DE OUTUBRO DE 2026 — Secretaria de Estado de Economia",
+     "o": "Poder Executivo",
+     "s": "Seção I",
+     "v": "R$ 14.378.029",
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634553&p=decreto-n-49501-de-06-de-outubro-de-2026"
+    },
+    {
+     "t": "DECRETO Nº 49.500, DE 06 DE OUTUBRO DE 2026 — Secretaria de Estado de Obras e Infraestrutura",
+     "o": "Poder Executivo",
+     "s": "Seção I",
+     "v": "R$ 10.000.000",
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=634556&p=decreto-n-49500-de-06-de-outubro-de-2026"
+    }
+   ]
+  },
+  {
+   "nome": "Termo aditivo / reequilíbrio",
+   "porque": "Contrato que mudou de preço ou prazo",
+   "grupo": "dinheiro",
+   "total": 155,
+   "dia": 15.5,
+   "comValor": 42,
+   "mediana": 193680,
+   "p75": 815550,
+   "p90": 5080203.24,
+   "max": 385894652.69,
+   "picoDia": 21,
+   "ex": [
+    {
+     "t": "EXTRATO DE CONTRATO (6º TERMO ADITIVO)",
+     "o": "Secretaria Geral",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631089&p=extrato-de-contrato-6-termo-aditivo"
+    },
+    {
+     "t": "EXTRATO DE&nbsp;TERMO ADITIVO",
+     "o": "Empresa de Assistência Técnica e Extensão Rural",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=630976&p=extrato-denbsptermo-aditivo"
+    },
+    {
+     "t": "EXTRATO DO 10º TERMO ADITIVO AO CONTRATO DE PRESTAÇÃO DE SERVIÇOS ",
+     "o": "Secretaria de Estado de Comunicação",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631122&p=extrato-do-10-termo-aditivo-ao-contrato-de-prestacao-de-servicos-de-publicidade-n-042021"
+    }
+   ]
+  },
+  {
+   "nome": "Convênio / termo de colaboração",
+   "porque": "Repasse a terceiro setor",
+   "grupo": "dinheiro",
+   "total": 32,
+   "dia": 3.2,
+   "comValor": 4,
+   "mediana": 1947650.72,
+   "p75": 9695000,
+   "p90": 9695000,
+   "max": 9695000,
+   "picoDia": 7,
+   "ex": [
+    {
+     "t": "CONVÊNIO Nº 008/2026",
+     "o": "DIRETORIA DE DESENVOLVIMENTO E PARCERIAS ESTRATÉGICAS",
+     "s": "Seção III",
+     "v": "R$ 20.000,00",
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=630994&p=convenio-n-0082026"
+    },
+    {
+     "t": "EXTRATO DO TERMO DE FOMENTO Nº 1/2026",
+     "o": "Secretaria de Estado de Atendimento à Comunidade",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631041&p=extrato-do-termo-de-fomento-n-12026"
+    },
+    {
+     "t": "EXTRATO DO TERMO DE FOMENTO Nº 62/2026",
+     "o": "Secretaria de Estado de Turismo",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631121&p=extrato-do-termo-de-fomento-n-622026"
+    }
+   ]
+  },
+  {
+   "nome": "Decreto do Poder Executivo",
+   "porque": "A assinatura da Governadora",
+   "grupo": "governo",
+   "total": 61,
+   "dia": 6.1,
+   "comValor": 1,
+   "mediana": 30000,
+   "p75": 30000,
+   "p90": 30000,
+   "max": 30000,
+   "picoDia": 16,
+   "ex": [
+    {
+     "t": "DECRETO Nº 49.416, DE 24 DE SETEMBRO DE 2026",
+     "o": "Poder Executivo",
+     "s": "Seção I",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631248&p=decreto-n-49416-de-24-de-setembro-de-2026"
+    },
+    {
+     "t": "DECRETO DE 24 DE SETEMBRO DE 2026",
+     "o": "Poder Executivo",
+     "s": "Seção II",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631246&p=decreto-de-24-de-setembro-de-2026"
+    },
+    {
+     "t": "RETIFICAÇÃO",
+     "o": "Poder Executivo",
+     "s": "Seção II",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631250&p=retificacao"
+    }
+   ]
+  },
+  {
+   "nome": "SEGOV e as 37 Regionais",
+   "porque": "A casa do próprio Secretário",
+   "grupo": "governo",
+   "total": 166,
+   "dia": 16.6,
+   "comValor": 13,
+   "mediana": 1366.5,
+   "p75": 2986.46,
+   "p90": 110000,
+   "max": 126985.65,
+   "picoDia": 28,
+   "ex": [
+    {
+     "t": "AVISO DE EDITAL DE CHAMAMENTO PÚBLICO Nº 01/2026 - SEGOV",
+     "o": "Secretaria de Estado de Governo",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631239&p=aviso-de-edital-de-chamamento-publico-n-012026-segov"
+    },
+    {
+     "t": "EDITAL DE CHAMAMENTO PÚBLICO Nº 38, DE 23 DE SETEMBRO DE 2026",
+     "o": "Secretaria Executiva das Cidades",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=630938&p=edital-de-chamamento-publico-n-38-de-23-de-setembro-de-2026"
+    },
+    {
+     "t": "EDITAL DE CONCORRÊNCIA PRESENCIAL Nº 01/2026 – RA-PLAN",
+     "o": "Administração Regional de Planaltina",
+     "s": "Seção III",
+     "v": null,
+     "link": "https://dodf.df.gov.br/dodf/materia/visualizar?co_data=631076&p=edital-de-concorrencia-presencial-n-012026-raplan"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById("dados").textContent);
+  var esc = function(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); };
+  var brl = function(n){ return n==null ? null : "R$ " + n.toLocaleString("pt-BR",{maximumFractionDigits:0}); };
+
+  var GRUPOS = [
+    {id:"risco", nome:"Risco", cor:"var(--risco)",
+     sub:"Atos que o Tribunal costuma apontar e que viram pergunta à Governadora. Volume baixo, consequência alta."},
+    {id:"dinheiro", nome:"Dinheiro", cor:"var(--dinheiro)",
+     sub:"Contratos e dotações que mudaram. É o bloco que mais pesa — e o que mais se beneficia de um corte por valor."},
+    {id:"governo", nome:"Governo", cor:"var(--governo)",
+     sub:"O que a Governadora assinou e o que a casa do próprio Secretário publicou."}
+  ];
+
+  var DESCARTADOS = [
+    {n:"Tomada de contas / processo disciplinar",
+     p:"78 atos em 10 dias, e <b>nenhum</b> casa no título — todos são menção no corpo. A quase totalidade é rotina da Gerência Correicional da Secretaria de Administração Penitenciária, processo de servidor. Não é matéria de gabinete."},
+    {n:"Crédito suplementar buscado no diário inteiro",
+     p:"57 atos, dos quais <b>51 na Seção III</b>: extratos de contrato que citam a dotação orçamentária no empenho, como todo contrato faz. O sinal real está na Seção I e são 0,6 por dia — mantido no bloco Dinheiro com esse recorte."}
+  ];
+
+  var estado = {};
+  D.sinais.forEach(function(s){ estado[s.nome] = true; });
+  try { var sv = localStorage.getItem("calib"); if (sv) { var o = JSON.parse(sv);
+    D.sinais.forEach(function(s){ if (o[s.nome] === false) estado[s.nome] = false; }); } } catch(e){}
+
+  function placar(){
+    var sOn = M.sinais.map(function(nome){ return !!estado[nome]; });
+    var nm = 0;
+    for (var i = 0; i < M.recs.length; i++) {
+      var r = M.recs[i], okS = false, okE = false, k;
+      for (k = 0; k < r[0].length; k++) if (sOn[r[0][k]]) { okS = true; break; }
+      if (!okS) continue;
+      for (k = 0; k < r[1].length; k++) if (entOn[r[1][k]]) { okE = true; break; }
+      if (okE) nm++;
+    }
+    var n = nm / M.dias;
+    document.getElementById("sel").textContent = n ? n.toFixed(0) : "0";
+    var nSin = sOn.filter(Boolean).length, nEnt = entOn.filter(Boolean).length;
+    var pct = (n / D.mediaDia * 100);
+    document.getElementById("frac").innerHTML = n
+      ? "<b>" + nSin + "</b> de " + M.sinais.length + " sinais &middot; <b>" + nEnt + "</b> de " +
+        M.entidades.length + " órgãos &middot; cerca de <b>" + pct.toFixed(0) + "%</b> do diário"
+      : "Nada marcado.";
+    D.sinais.forEach(function(s){
+      var el = document.getElementById("c_" + btoa(unescape(encodeURIComponent(s.nome))).replace(/[^a-zA-Z0-9]/g,""));
+      if (el) el.classList.toggle("off", !estado[s.nome]);
+    });
+    try { localStorage.setItem("calib", JSON.stringify(estado)); } catch(e){}
+  }
+
+  var html = "";
+  GRUPOS.forEach(function(g){
+    var lista = D.sinais.filter(function(s){ return s.grupo === g.id; });
+    var tot = lista.reduce(function(a,b){ return a + b.dia; }, 0);
+    html += '<h2><i style="background:' + g.cor + '"></i>' + g.nome +
+            '<em>' + tot.toFixed(1) + ' atos/dia se tudo marcado</em></h2>' +
+            '<p class="gsub">' + g.sub + '</p>';
+    lista.forEach(function(s){
+      var uid = btoa(unescape(encodeURIComponent(s.nome))).replace(/[^a-zA-Z0-9]/g,"");
+      var meta = ['pico de <b>' + s.picoDia + '</b> num só dia', '<b>' + s.total + '</b> em 10 dias'];
+      if (s.comValor) {
+        meta.push('valor apurado em <b>' + s.comValor + '</b> de ' + s.total);
+        if (s.mediana != null) meta.push('mediana <b>' + brl(s.mediana) + '</b>');
+        if (s.p90 != null && s.p90 !== s.mediana) meta.push('P90 <b>' + brl(s.p90) + '</b>');
+      } else { meta.push('<b>sem valor em R$</b> no trecho visível'); }
+      html += '<div class="card" id="c_' + uid + '" style="--c:' + g.cor + '">' +
+        '<div class="linha1"><input type="checkbox" id="k_' + uid + '"' + (estado[s.nome] ? " checked" : "") + '>' +
+        '<label class="nm" for="k_' + uid + '">' + esc(s.nome) + '<span class="pq">' + esc(s.porque) + '</span></label>' +
+        '<span class="num"><b>' + s.dia.toFixed(1) + '</b><small>por dia</small></span></div>' +
+        '<div class="meta">' + meta.join(" &middot; ") + '</div>' +
+        (s.nota ? '<div class="nota">' + s.nota + '</div>' : "") +
+        (s.ex.length ? '<details class="ex"><summary>ver 3 exemplos reais</summary>' +
+          s.ex.map(function(e){ return '<a class="exi" href="' + esc(e.link) + '" target="_blank" rel="noopener">' +
+            esc(e.t) + (e.v ? ' &middot; <b>' + esc(e.v) + '</b>' : "") +
+            '<span>' + esc(e.o) + ' &middot; ' + esc(e.s) + '</span></a>'; }).join("") +
+          '</details>' : "") + '</div>';
+    });
+  });
+  document.getElementById("app").innerHTML = html;
+  var O = JSON.parse(document.getElementById("orgaos").textContent);
+  var M = JSON.parse(document.getElementById("matriz").textContent);
+  var entOn = M.entidades.map(function(){ return true; });
+  try { var se = localStorage.getItem("calibOrg"); if (se) { var ao = JSON.parse(se);
+    if (ao && ao.length === entOn.length) entOn = ao; } } catch(e){}
+
+  function tabela(el, linhas, base){
+    var maxp = Math.max.apply(null, linhas.map(function(x){ return x.pct; })) || 1;
+    var h = '<thead><tr><th class="ck"></th><th>Órgão</th><th>publica/dia</th><th>sinais/dia</th>' +
+            '<th>% sinal</th><th>S-I</th><th>S-III</th><th>principais sinais</th></tr></thead><tbody>';
+    h += linhas.map(function(x, i){
+      var gi = base + i, w = (x.pct / maxp * 42).toFixed(0);
+      return '<tr id="r_' + gi + '" class="' + (x.pct >= 30 ? 'alto ' : '') + (entOn[gi] ? '' : 'desl') + '">' +
+        '<td class="ck"><input type="checkbox" data-ent="' + gi + '"' + (entOn[gi] ? ' checked' : '') +
+        ' aria-label="' + esc(x.nome) + '"></td>' +
+        '<td>' + esc(x.nome) + '</td><td>' + x.dia.toFixed(1) + '</td><td>' + x.sinaisDia.toFixed(1) + '</td>' +
+        '<td class="pc">' + x.pct + '%<span class="barra" style="width:' + w + 'px"></span></td>' +
+        '<td>' + x.secoes.I + '</td><td>' + x.secoes.III + '</td>' +
+        '<td>' + esc(x.det.join(", ") || "—") + '</td></tr>'; }).join("");
+    document.getElementById(el).innerHTML = h + '</tbody>';
+  }
+  tabela("tsec", O.secretarias, 0);
+  tabela("test", O.estatais, M.nSec);
+
+  document.getElementById("desc").innerHTML = DESCARTADOS.map(function(d){
+    return '<div class="descartado"><b>' + esc(d.n) + '</b><p>' + d.p + '</p></div>'; }).join("");
+
+  D.sinais.forEach(function(s){
+    var uid = btoa(unescape(encodeURIComponent(s.nome))).replace(/[^a-zA-Z0-9]/g,"");
+    var k = document.getElementById("k_" + uid);
+    if (k) k.addEventListener("change", function(){ estado[s.nome] = k.checked; placar(); });
+  });
+  function setAll(v){ D.sinais.forEach(function(s){
+    estado[s.nome] = v;
+    var uid = btoa(unescape(encodeURIComponent(s.nome))).replace(/[^a-zA-Z0-9]/g,"");
+    var k = document.getElementById("k_" + uid); if (k) k.checked = v; }); placar(); }
+  function pintaLinhas(){ entOn.forEach(function(v,i){ var r = document.getElementById("r_" + i);
+    if (r) r.classList.toggle("desl", !v); }); }
+  document.querySelectorAll("table.org input[data-ent]").forEach(function(k){
+    k.addEventListener("change", function(){ entOn[+k.dataset.ent] = k.checked;
+      try { localStorage.setItem("calibOrg", JSON.stringify(entOn)); } catch(e){}
+      pintaLinhas(); placar(); }); });
+  function setOrg(fn){ entOn = entOn.map(function(_,i){ return fn(i); });
+    document.querySelectorAll("table.org input[data-ent]").forEach(function(k){ k.checked = entOn[+k.dataset.ent]; });
+    try { localStorage.setItem("calibOrg", JSON.stringify(entOn)); } catch(e){}
+    pintaLinhas(); placar(); }
+  document.getElementById("botodos").addEventListener("click", function(){ setOrg(function(){ return true; }); });
+  document.getElementById("bolimpa").addEventListener("click", function(){ setOrg(function(){ return false; }); });
+  document.getElementById("bosec").addEventListener("click", function(){ setOrg(function(i){ return i < M.nSec; }); });
+  document.getElementById("btodos").addEventListener("click", function(){ setAll(true); });
+  document.getElementById("bnenhum").addEventListener("click", function(){ setAll(false); });
+  placar();
+})();
+</script>
+
+</body>
+</html>

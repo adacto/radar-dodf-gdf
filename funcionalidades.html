@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O que o Radar DODF faz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Catálogo de decisão: cada função com o que faz, o que custa e o que já existe. Três respostas por item. */
+:root{
+  --azul:#0071bb; --azul2:#0098d9;
+  --sim:#0f7a4d; --nao:#C41E3A; --dps:#f4a100; --roxo:#512178;
+  --bg:#f3f6f9; --sup:#ffffff; --fg:#10222f; --fg2:#4a6577; --linha:#d8e3ec;
+  --disp:"Unbounded",system-ui,sans-serif; --txt:"IBM Plex Sans",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --azul:#2fb4e9; --azul2:#63c6e9; --sim:#4ec98c; --nao:#ff6b82; --dps:#fabb11; --roxo:#a98fc4;
+  --bg:#0b1620; --sup:#132430; --fg:#e8f1f7; --fg2:#92aec1; --linha:#233b4d; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --azul:#2fb4e9; --azul2:#63c6e9; --sim:#4ec98c; --nao:#ff6b82; --dps:#fabb11; --roxo:#a98fc4;
+  --bg:#0b1620; --sup:#132430; --fg:#e8f1f7; --fg2:#92aec1; --linha:#233b4d; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--txt);margin:0;line-height:1.45;
+  font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+.wrap{max-width:50rem;margin:0 auto;padding-inline:16px;padding-block:1.6rem 3rem}
+.papel{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--azul);font-weight:600;margin-bottom:.6rem}
+h1{font-family:var(--disp);font-weight:800;font-size:1.75rem;letter-spacing:-.02em;margin:0 0 .7rem;max-width:20ch;line-height:1.1}
+.lede{color:var(--fg2);font-size:.95rem;max-width:44ch;margin:0 0 1.4rem}
+.lede b{color:var(--fg)}
+.placar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--azul);color:#fff;
+  border-radius:4px;padding:.7rem .9rem;margin-bottom:1.6rem;display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;align-items:center}
+.placar div{display:flex;align-items:baseline;gap:.4rem}
+.placar b{font-family:var(--disp);font-weight:800;font-size:1.4rem;line-height:1}
+.placar span{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;opacity:.92}
+.placar .rest{flex:1 1 9rem;font-size:.78rem;opacity:.93;min-width:0}
+h2{font-family:var(--disp);font-weight:600;font-size:1rem;margin:1.9rem 0 .2rem;display:flex;gap:.5rem;align-items:baseline}
+h2 i{width:.65rem;height:.65rem;border-radius:2px;background:var(--azul);flex:none;font-style:normal}
+.gsub{color:var(--fg2);font-size:.82rem;margin:0 0 .7rem;max-width:46ch}
+.item{background:var(--sup);border:1px solid var(--linha);border-radius:3px;margin-bottom:.45rem;
+  border-left:4px solid var(--linha)}
+.item.s{border-left-color:var(--sim)} .item.n{border-left-color:var(--nao);opacity:.6} .item.d{border-left-color:var(--dps)}
+.topo{padding:.7rem .85rem .5rem;display:flex;gap:.6rem;align-items:flex-start;flex-wrap:wrap}
+.nm{font-weight:600;font-size:.9rem;flex:1 1 14rem;min-width:0}
+.sel{display:flex;gap:.25rem;flex:none}
+.sel button{font:inherit;font-size:.72rem;padding:.25rem .6rem;border-radius:3px;cursor:pointer;
+  border:1px solid var(--linha);background:transparent;color:var(--fg2)}
+.sel button:hover{border-color:var(--azul);color:var(--azul)}
+.sel button:focus-visible{outline:2px solid var(--azul);outline-offset:1px}
+.sel button[aria-pressed="true"]{color:#fff;border-color:transparent}
+.sel button.bs[aria-pressed="true"]{background:var(--sim)}
+.sel button.bn[aria-pressed="true"]{background:var(--nao)}
+.sel button.bd[aria-pressed="true"]{background:var(--dps)}
+.corpo{padding:0 .85rem .7rem;font-size:.82rem;color:var(--fg2)}
+.corpo b{color:var(--fg)}
+.sel2{display:flex;flex-wrap:wrap;gap:.3rem .8rem;margin-top:.45rem;font-size:.72rem}
+.tag{border:1px solid var(--linha);border-radius:2px;padding:.05rem .4rem;color:var(--fg2)}
+.tag.ok{border-color:var(--sim);color:var(--sim)}
+.tag.todo{border-color:var(--azul2);color:var(--azul2)}
+.resumo{border-top:2px solid var(--linha);margin-top:2.4rem;padding-top:1.1rem}
+.resumo h3{font-family:var(--disp);font-weight:600;font-size:.85rem;margin:0 0 .6rem;
+  text-transform:uppercase;letter-spacing:.06em}
+.rbloco{margin-bottom:.8rem;font-size:.84rem}
+.rbloco .rt{font-weight:600;margin-bottom:.2rem}
+.rbloco ul{margin:.1rem 0;padding-left:1.1rem;color:var(--fg2)}
+.nota{border-left:3px solid var(--azul);padding:.7rem .85rem;background:var(--sup);
+  border-radius:0 3px 3px 0;font-size:.84rem;margin:1.6rem 0 0}
+.nota b{color:var(--fg)}
+.acoes{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem}
+.acoes button{font:inherit;font-size:.76rem;padding:.35rem .7rem;border-radius:3px;cursor:pointer;
+  border:1px solid var(--linha);background:var(--sup);color:var(--fg)}
+.acoes button:hover{border-color:var(--azul);color:var(--azul)}
+</style>
+</head>
+<body style="margin:0">
+
+<div class="wrap">
+<div class="papel">Radar DODF &middot; prévia para decisão</div>
+<h1>O que o sistema faz, e o que não precisa fazer.</h1>
+<p class="lede">Cada função abaixo pode entrar ou ficar de fora. O que ficar de fora não custa nada —
+e o que entrar sem necessidade vira ruído. <b>Marcar &ldquo;não&rdquo; é tão útil quanto marcar &ldquo;sim&rdquo;.</b></p>
+<div class="placar">
+ <div><b id="ns">—</b><span>sim</span></div>
+ <div><b id="nn">—</b><span>não</span></div>
+ <div><b id="nd">—</b><span>depois</span></div>
+ <div class="rest" id="rest"></div>
+</div>
+<main id="app"></main>
+<div class="resumo">
+<h3>Resumo da escolha</h3>
+<div id="res"></div>
+<div class="acoes"><button id="blimpa">Começar do zero</button></div>
+</div>
+<div class="nota"><b>O que já existe e o que é projeto.</b> As etiquetas <span class="tag ok">medido</span>
+marcam o que já foi feito e conferido sobre 10 dias reais do DODF — a varredura, os filtros e a extração de campos.
+As etiquetas <span class="tag todo">a construir</span> marcam o que está desenhado mas ainda não existe:
+a automação, a triagem e os cruzamentos. Nada aqui está no ar funcionando sozinho hoje.</div>
+</div>
+<script id="dados" type="application/json">
+{"grupos":[
+{"n":"Coleta","s":"Como o radar lê o diário. Decide o que é possível a partir daqui — se não for coletado, nada adiante existe.","itens":[
+ {"t":"Varredura completa das três seções","st":"medido","d":"Lê a edição inteira, todas as páginas, não uma amostra. Em 10 dias foram <b>3.864 atos</b>, média de 386 por dia.","c":"Sem isso, qualquer filtro trabalha sobre o que sobrou do acaso."},
+ {"t":"Duas rodadas por dia","st":"construir","d":"Uma às 10h, com a edição íntegra. Outra às 19h, para a edição extra.","c":"Houve <b>edição extra em 8 dos 10 dias</b> medidos. Uma rodada só perderia em 80% dos dias — e a extra traz o que foi decidido no expediente."},
+ {"t":"Inteiro teor dos decretos","st":"medido","d":"Abre o texto completo dos decretos do Poder Executivo, cerca de 6 por dia, em vez de ler só o resumo.","c":"<b>14 dos 17 créditos suplementares</b> do período não apareciam no resumo: o preâmbulo do decreto ocupa o espaço visível antes de chegar ao valor."}
+]},
+{"n":"Filtro","s":"O que separa os 386 atos diários do que de fato pede atenção.","itens":[
+ {"t":"Sinais calibrados","st":"medido","d":"Dez tipos de ato — reconhecimento de dívida, contratação direta, aditivo, crédito suplementar, penalidade e outros.","c":"De 386 atos sobram <b>59 por dia</b>. Quais sinais entram é a decisão da página de calibragem."},
+ {"t":"Recorte por órgão","st":"medido","d":"42 entidades mapeadas, incluindo estatais contadas por árvore: Novacap, BRB, Caesb, Terracap, IGES/DF.","c":"Permite dizer, por exemplo, &ldquo;tudo da Saúde e da Economia, nada de Cultura&rdquo;."},
+ {"t":"Corte por valor","st":"construir","d":"Ignora atos abaixo de um valor, para que o bloco de contratos não vire ruído.","c":"O limiar ainda não existe. Precisa ser definido vendo a distribuição real — a mediana dos aditivos é R$ 193 mil e o P90 é R$ 5,0 milhões."}
+]},
+{"n":"Entrega","s":"Como o resultado chega todo dia.","itens":[
+ {"t":"Boletim diário em link fixo","st":"construir","d":"Um endereço só, que mostra sempre a edição do dia. Abre no celular.","c":"A página já está desenhada e pode ser vista hoje. O que não existe é a atualização automática."},
+ {"t":"Cada ato ligado ao original","st":"medido","d":"Um toque abre o ato no site do DODF, com o texto oficial e o número do processo.","c":"Nenhuma afirmação do radar precisa ser aceita no escuro."},
+ {"t":"Declaração do que não é coberto","st":"medido","d":"O rodapé do boletim diz o que o radar não vê: o TCDF não publica no DODF, e atos de pessoal estão subcontados.","c":"Uma lacuna declarada custa menos que uma lacuna descoberta por terceiro."}
+]},
+{"n":"Triagem","s":"O que acontece entre a publicação e a mesa de quem decide.","itens":[
+ {"t":"Marcação sobe ou não sobe","st":"construir","d":"Quem passa o olho às 10h marca cada ato com um toque. Sem campo de texto.","c":"A marcação é operação. Justificativa escrita vira documento — foi deliberadamente deixada de fora."},
+ {"t":"Pauta separada","st":"construir","d":"Quem decide abre a mesma página e vê só o que subiu. O resto fica recolhido, acessível num toque.","c":"A diferença entre receber 59 atos e receber uma pauta."},
+ {"t":"A marcação apaga","st":"construir","d":"O registro de quem marcou o quê vive enquanto aquele boletim é o do dia, e some quando a edição seguinte entra.","c":"Nada acumula. É ferramenta de trabalho, não arquivo."}
+]},
+{"n":"Cruzamentos","s":"O que só um sistema que lê todo dia consegue ver — e que nenhum ato isolado mostra.","itens":[
+ {"t":"Mesmo fornecedor em pastas diferentes","st":"construir","d":"Avisa quando a mesma empresa aparece em secretarias distintas, ou é punida em uma e contratada em outra.","c":"Depende do CNPJ, que já sai do texto em <b>73%</b> dos atos."},
+ {"t":"Concentração por fornecedor","st":"medido","d":"Mostra quando poucos nomes respondem por muito de um sinal.","c":"Em 10 dias, <b>uma única associação médica</b> concentrou 9 reconhecimentos de dívida e R$ 6,0 milhões — de um total de R$ 10,6 milhões."},
+ {"t":"Alerta de lote","st":"medido","d":"Avisa quando um tipo de ato aparece em bloco depois de dias parado.","c":"Zero créditos suplementares entre 25/09 e 06/10, depois <b>6 num dia e 11 no seguinte</b>, somando R$ 84,9 milhões."}
+]},
+{"n":"Fora da página","s":"Formas de o radar chegar sem alguém precisar abrir nada. São as mais fáceis de recusar.","itens":[
+ {"t":"Aviso quando algo passa do limiar","st":"construir","d":"Uma mensagem fora da página quando um ato ultrapassa o valor definido.","c":"Útil para o que não pode esperar as 10h. Também é o caminho mais curto para o sistema virar incômodo."},
+ {"t":"Resumo semanal","st":"construir","d":"Uma página por semana com o acumulado: quanto em aditivos, quais fornecedores repetiram, quais órgãos concentraram.","c":"Serve mais para conversa com o Tribunal do que para a rotina do gabinete."},
+ {"t":"Exportação para planilha","st":"construir","d":"Baixar os atos do dia ou do período em planilha.","c":"Útil se alguém da equipe for trabalhar os dados por fora."}
+]}
+]}
+</script>
+<script>
+(function(){
+  var F = JSON.parse(document.getElementById("dados").textContent);
+  var esc = function(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); };
+  var itens = [];
+  F.grupos.forEach(function(g){ g.itens.forEach(function(i){ itens.push(i); }); });
+  var est = {};
+  try { var sv = localStorage.getItem("func"); if (sv) est = JSON.parse(sv) || {}; } catch(e){}
+
+  var ESC = [["s","sim","bs"],["n","não","bn"],["d","depois","bd"]];
+  var html = "";
+  F.grupos.forEach(function(g){
+    html += '<h2><i></i>' + esc(g.n) + '</h2><p class="gsub">' + esc(g.s) + '</p>';
+    g.itens.forEach(function(it){
+      var id = itens.indexOf(it);
+      var tag = it.st === "medido"
+        ? '<span class="tag ok">medido</span>'
+        : '<span class="tag todo">a construir</span>';
+      html += '<div class="item" id="i_' + id + '">' +
+        '<div class="topo"><span class="nm">' + esc(it.t) + '</span>' +
+        '<span class="sel">' + ESC.map(function(e){
+          return '<button class="' + e[2] + '" data-i="' + id + '" data-v="' + e[0] + '" aria-pressed="false">' +
+                 e[1] + '</button>'; }).join("") + '</span></div>' +
+        '<div class="corpo">' + it.d +
+        '<div class="sel2">' + tag + '<span>' + it.c + '</span></div></div></div>';
+    });
+  });
+  document.getElementById("app").innerHTML = html;
+
+  function pinta(){
+    var c = {s:0,n:0,d:0};
+    itens.forEach(function(it,i){
+      var v = est[i] || "";
+      if (c[v] !== undefined) c[v]++;
+      var el = document.getElementById("i_" + i);
+      if (el) el.className = "item" + (v ? " " + v : "");
+      document.querySelectorAll('button[data-i="' + i + '"]').forEach(function(b){
+        b.setAttribute("aria-pressed", b.dataset.v === v ? "true" : "false"); });
+    });
+    document.getElementById("ns").textContent = c.s;
+    document.getElementById("nn").textContent = c.n;
+    document.getElementById("nd").textContent = c.d;
+    var falta = itens.length - c.s - c.n - c.d;
+    document.getElementById("rest").textContent = falta
+      ? falta + " de " + itens.length + " ainda sem resposta"
+      : "As " + itens.length + " funções foram respondidas.";
+    var blocos = [["s","Entra no sistema"],["d","Fica para depois"],["n","Não entra"]];
+    document.getElementById("res").innerHTML = blocos.map(function(b){
+      var l = itens.filter(function(it,i){ return est[i] === b[0]; });
+      if (!l.length) return "";
+      return '<div class="rbloco"><div class="rt">' + b[1] + ' &middot; ' + l.length + '</div><ul>' +
+        l.map(function(it){ return '<li>' + esc(it.t) + '</li>'; }).join("") + '</ul></div>';
+    }).join("") || '<p class="gsub">Nada respondido ainda.</p>';
+    try { localStorage.setItem("func", JSON.stringify(est)); } catch(e){}
+  }
+  document.querySelectorAll('button[data-i]').forEach(function(b){
+    b.addEventListener("click", function(){
+      var i = b.dataset.i;
+      est[i] = est[i] === b.dataset.v ? "" : b.dataset.v;
+      pinta(); }); });
+  document.getElementById("blimpa").addEventListener("click", function(){ est = {}; pinta(); });
+  pinta();
+})();
+</script>
+
+</body>
+</html>
